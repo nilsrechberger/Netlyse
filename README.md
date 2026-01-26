@@ -6,13 +6,18 @@ Netlyse is a static report analysis of Netflix movies and series based on R and 
 
 ```bash
 .
-├── data # Data directory
-├── docs # Report directory
-├── img # Image directory
-├── LICENSE # Project licence
-├── R # Source code
-├── README.md # This file
-└── scripts # Utility scripts
+├── data        # Data directory
+├── docs        # Reports
+├── .git
+├── .gitignore
+├── img         # Image directory
+├── LICENSE 
+├── R           # Main scrips
+├── README.md   # This file
+├── renv        # Virtual enviroment
+├── renv.lock   # Requirements
+├── .Rprofile
+└── scripts     # Utilities
 ```
 
 ## Idea
