@@ -23,3 +23,4 @@ Netlyse is a static report analysis of Netflix movies and series based on R and 
 ## Idea
 
 TBD
+assesment
