@@ -2,8 +2,12 @@ library(readr)
 library(dplyr)
 
 # Load data
-netflix_ds1 <- read_csv("data/netflix_titles.csv")
-netflix_ds2 <- read_csv("data/Netflix TV Shows and Movies.csv")
+netflix_ds1 <- read_csv(
+    file = "data/netflix_titles.csv",
+    quote = "\"")
+netflix_ds2 <- read_csv(
+    file = "data/Netflix TV Shows and Movies.csv",
+    quote = "\"")
 
 # Join data
 joined_datasets <- full_join(
