@@ -5,5 +5,8 @@ renv/library/
 renv/python/
 renv/staging/
 
+.DS_Store
+**/.DS_Store
+
 data/
 docs/
