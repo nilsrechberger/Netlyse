@@ -10,6 +10,17 @@ format: pdf
 
 ## Introduction
 
+### A brief History of Netflix
+
+Netflix is an subscription video on-demand streaming service based in the USA. The service primarily distributes original and acquired films and television shows from various genres, and it is available internationally in multiple languages^[https://en.wikipedia.org/wiki/Netflix].
+
+In the early 2000s, Netflix was launched as a mail-based rental business. With this new business model, Neftlix directly compete with Blockbuster, which was one of the biggest player in this time. Not restricted to the size of a retail store, Netflix could offer hundreds of thousands of DVDs to customers in a long tail business model.
+
+But with the fast tecnical transformation in the later 2000s, Netflix needed to refocus there businnes model. By the mid-2000s data speeds and bandwidth costs improved sufficiently to allow customers to download movies from the internet instead to order them by mail.
+
+### An Analytical View
+
+Netflix had long closely analyzed its customers' preferences. Watch Now gave the company real-time data on their behavior, such as scenes that customers replayed or skipped, or when they stopped watching a show^[https://www.nplusonemag.com/issue-49/essays/casual-viewing/].
 
 ## Research Questions
 
