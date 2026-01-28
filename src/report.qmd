@@ -28,12 +28,51 @@ Netflix had long closely analyzed its customers' preferences. Watch Now gave the
 How has Netflix’s content catalogue evolved over time in terms of content type and country of production?
 :::
 
-To address this main research question, the following sub-questions are investigated:
+The main research question aims to explore the structural development of Netflix’s content catalogue over time. As one of the largest global streaming platforms, Netflix continuously adapts its content strategy to changing market conditions, audience preferences, and international expansion goals. By analysing trends in content growth, content type, and country of production, this study seeks to provide a comprehensive overview of how Netflix has shaped its catalogue and positioned itself within the global entertainment industry.
 
-1. How has the number of Netflix titles changed over time?
-2. How has the balance between movies and TV shows evolved on Netflix?
-3. Which countries contribute the most content to Netflix?
-4. How does the distribution of content types differ across producing countries?
+To address this overarching research question in a structured manner, the following sub-questions are formulated. Each sub-question focuses on a specific aspect of Netflix’s content strategy and contributes to a deeper understanding of the platform’s evolution.
+
+### 1. How has the total number of Netflix titles changed over time?
+
+This question examines the overall growth trajectory of Netflix’s content catalogue. By analysing changes in the number of titles available on the platform across different time periods, the study aims to identify patterns of expansion, acceleration, or potential saturation. Understanding how the catalogue size evolves over time provides important insights into Netflix’s investment behaviour, content acquisition strategy, and response to increasing competition within the streaming market.
+
+Additionally, this question helps to contextualise subsequent analyses by establishing a baseline understanding of Netflix’s overall growth. A steadily increasing number of titles may indicate aggressive expansion, whereas periods of slower growth may reflect strategic consolidation or shifts in content priorities.
+
+---
+
+### 2. How has the balance between movies and TV shows evolved on Netflix?
+
+This question focuses on changes in the composition of Netflix’s catalogue, specifically the relative proportions of movies and TV shows over time. Movies and TV shows differ significantly in production costs, audience engagement, and viewing behaviour, making this distinction particularly relevant for understanding Netflix’s strategic focus.
+
+By examining how the balance between these two content types has changed, the study aims to assess whether Netflix has increasingly prioritised episodic content, which often encourages longer viewer engagement, or whether movies continue to play a central role in the platform’s offering. This analysis contributes to understanding how Netflix aligns its content portfolio with user consumption patterns and long-term retention strategies.
+
+---
+
+### 3. Which countries contribute the most content to Netflix, and how has this changed over time?
+
+This question addresses the geographical dimension of Netflix’s content catalogue. It investigates which countries are the largest contributors of content and how their contributions have evolved over time. The aim is to assess the extent to which Netflix relies on content from a small number of dominant production countries versus a more diversified international portfolio.
+
+By analysing country-level contributions, this question provides insights into Netflix’s globalisation strategy and its efforts to expand beyond traditionally dominant markets. Changes in country contributions over time may reflect strategic investments in regional markets, the growth of local production industries, or shifts in audience demand for international content.
+
+---
+
+### 4. How does the distribution of content types differ across producing countries?
+
+Building on the previous question, this question explores whether different countries tend to specialise in particular types of content for Netflix, such as movies or TV shows. Rather than focusing solely on the volume of content, this analysis examines qualitative differences in production patterns across countries.
+
+Understanding how content type distributions vary by country helps to identify regional production characteristics and potential cultural or industrial influences on content creation. This question also supports a more nuanced interpretation of Netflix’s international content strategy by highlighting differences not only in quantity but also in the nature of content produced.
+
+---
+
+### 5. How are age ratings distributed across Netflix titles, and do these distributions differ between movies and TV shows?
+
+This question focuses on audience classification and content targeting within Netflix’s catalogue. Age ratings provide important information about the intended audience and content suitability, making them a key variable for understanding Netflix’s programming strategy.
+
+By analysing the distribution of age ratings across all titles and comparing movies and TV shows, this question aims to assess whether different content types are targeted at different audience segments. This contributes to understanding how Netflix balances family-friendly content, mature programming, and niche audience interests, as well as how content type influences rating decisions.
+
+---
+
+Together, these research questions provide a structured framework for analysing the evolution of Netflix’s content catalogue. They allow for a comprehensive examination of growth patterns, content composition, geographical diversity, and audience targeting, thereby supporting a holistic understanding of Netflix’s content strategy over time.
 
 
 ## Data Overview
