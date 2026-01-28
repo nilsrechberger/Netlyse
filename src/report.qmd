@@ -5,3 +5,25 @@ date: "January 2026"
 toc: true
 format: pdf
 ---
+
+## Abstract
+
+## Introduction
+
+## Research Questions
+
+## Data Overview
+
+## Exploratory Data Analysis
+
+## Statistical Analysis & Methodology
+
+## Time Series Forecasting
+
+## Discussion
+
+## Conclusion
+
+## References
+
+## Appendix
