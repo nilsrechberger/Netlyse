@@ -85,6 +85,7 @@ Together, these research questions provide a structured framework for analysing 
 #| echo: false
 
 library(tidyverse)
+source("scripts/00_download_data.R") # Self build utility script
 ```
 
 ```{r}
@@ -118,8 +119,15 @@ imdb_data
 
 #### Join data
 
+The selection of an appropriate join strategy was a critical component of the data acquisition phase. To ensure the integrity and completeness of the final dataset, the team opted for a Full Outer Join.
+
+This approach was chosen for the following reasons:
+
+- Data Preservation: It ensures that no information is inadvertently lost during the merging process, even if the data is incomplete in one of the source tables.
+- Holistic Analysis: It allows for a comprehensive view of the data, enabling the identification of gaps or discrepancies between the merged datasets. 
+
 ```{r}
-source("scripts/join_data.R") # Self build utility script
+source("scripts/01_join_data.R") # Self build utility script
 
 joined_data <- readr::read_csv(
     file = "data/joined_data.csv",
