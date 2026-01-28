@@ -12,7 +12,65 @@ format: pdf
 
 ## Research Questions
 
+::: {.callout}
+How do production characteristics such as runtime, cast size, and content type influence the distribution of IMDb scores and ratings for Netflix titles?
+:::
+
 ## Data Overview
+
+### Data Sample
+
+#### Dataset "Netflix Movies and TV Shows"
+
+```{r}
+#| echo: false
+
+library(tidyverse)
+```
+
+```{r}
+#| echo: false
+
+netflix_data <- readr::read_csv(
+    file = "data/netflix_titles.csv",
+    quote = "\""
+) %>% dplyr::select(
+    c("title", "country", "duration")
+)
+
+netflix_data
+
+```
+
+#### Dataset "Netflix IMDB Scores"
+
+```{r}
+#| echo: false
+
+imdb_data <- readr::read_csv(
+    file = "data/Netflix TV Shows and Movies.csv",
+    quote = "\""
+) %>% dplyr::select(
+    c("title", "type", "imdb_score")
+)
+
+imdb_data
+```
+
+#### Join data
+
+```{r}
+source("scripts/join_data.R") # Self build utility script
+
+joined_data <- readr::read_csv(
+    file = "data/joined_data.csv",
+    quote = "\""
+) %>% dplyr::select(
+    c("title", "country", "duration", "type.y", "imdb_score")
+)
+
+joined_data
+```
 
 ## Exploratory Data Analysis
 
