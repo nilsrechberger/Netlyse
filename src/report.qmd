@@ -64,11 +64,11 @@ Understanding how content type distributions vary by country helps to identify r
 
 ---
 
-### 5. How are age ratings distributed across Netflix titles, and do these distributions differ between movies and TV shows?
+### 5. How are IMDb scores and IMDb vote counts distributed across Netflix titles, and how do they differ between movies and TV shows?
 
-This question focuses on audience classification and content targeting within Netflix’s catalogue. Age ratings provide important information about the intended audience and content suitability, making them a key variable for understanding Netflix’s programming strategy.
+This question focuses on audience evaluation and popularity of Netflix titles using IMDb data. IMDb scores provide a measure of perceived content quality, while IMDb vote counts reflect the level of audience engagement and visibility of a title. Analysing both variables allows for a more comprehensive understanding of how Netflix content is received by viewers.
 
-By analysing the distribution of age ratings across all titles and comparing movies and TV shows, this question aims to assess whether different content types are targeted at different audience segments. This contributes to understanding how Netflix balances family-friendly content, mature programming, and niche audience interests, as well as how content type influences rating decisions.
+By examining the distribution of IMDb scores and vote counts across the catalogue, this question aims to identify general patterns in audience ratings and popularity. Furthermore, comparing movies and TV shows helps to assess whether episodic content and standalone productions differ in terms of viewer reception and engagement levels. This analysis contributes to understanding how content type influences both perceived quality and audience participation.
 
 ---
 
