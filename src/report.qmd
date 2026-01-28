@@ -10,11 +10,20 @@ format: pdf
 
 ## Introduction
 
+
 ## Research Questions
 
 ::: {.callout}
-How do production characteristics such as runtime, cast size, and content type influence the distribution of IMDb scores and ratings for Netflix titles?
+How has Netflix’s content catalogue evolved over time in terms of content type and country of production?
 :::
+
+To address this main research question, the following sub-questions are investigated:
+
+1. How has the number of Netflix titles changed over time?
+2. How has the balance between movies and TV shows evolved on Netflix?
+3. Which countries contribute the most content to Netflix?
+4. How does the distribution of content types differ across producing countries?
+
 
 ## Data Overview
 
