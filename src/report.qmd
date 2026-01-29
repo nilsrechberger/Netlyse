@@ -65,11 +65,11 @@ By examining how the balance between these two content types has changed, the st
 
 ---
 
-### 3. Which countries contribute the most content to Netflix, and how has this changed over time?
+### 3. Which countries contribute the most content to Netflix, and how do their contributions differ across content genres?
 
-This question addresses the geographical dimension of Netflix’s content catalogue. It investigates which countries are the largest contributors of content and how their contributions have evolved over time. The aim is to assess the extent to which Netflix relies on content from a small number of dominant production countries versus a more diversified international portfolio.
+This question examines the geographical composition of Netflix’s content catalogue with a particular focus on genre distribution. While overall content volume provides an indication of production intensity, analysing genres allows for a more nuanced understanding of how different countries contribute to the diversity of Netflix’s offerings.
 
-By analysing country-level contributions, this question provides insights into Netflix’s globalisation strategy and its efforts to expand beyond traditionally dominant markets. Changes in country contributions over time may reflect strategic investments in regional markets, the growth of local production industries, or shifts in audience demand for international content.
+By investigating which countries dominate the production of specific genres, this question aims to identify potential regional specialisations and production patterns. Such patterns may reflect cultural preferences, industry strengths, or strategic decisions by Netflix to invest in particular types of content in certain markets. This analysis contributes to a deeper understanding of Netflix’s global content strategy and its approach to genre diversification across regions.
 
 ---
 
