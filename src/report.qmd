@@ -95,7 +95,11 @@ netflix_data <- readr::read_csv(
     file = "data/netflix_titles.csv",
     quote = "\""
 ) %>% dplyr::select(
-    c("title", "country", "duration")
+    c(
+        title,
+        country,
+        duration
+    )
 )
 
 netflix_data
@@ -111,7 +115,11 @@ imdb_data <- readr::read_csv(
     file = "data/Netflix TV Shows and Movies.csv",
     quote = "\""
 ) %>% dplyr::select(
-    c("title", "type", "imdb_score")
+    c(
+        title,
+        type,
+        imdb_score
+    )
 )
 
 imdb_data
@@ -138,11 +146,11 @@ joined_data <- readr::read_csv(
 joined_data_preview <- joined_data_preview %>% 
     dplyr::select(
         c(
-            "title",
-            "country",
-            "duration",
-            "type.y",
-            "imdb_score"
+            title,
+            country,
+            duration,
+            type.y,
+            imdb_score
         )
 )
 
@@ -150,6 +158,10 @@ joined_data_preview
 ```
 
 ## Exploratory Data Analysis
+
+```{r}
+library(ggplot2)
+```
 
 ### Statistics
 
@@ -159,10 +171,10 @@ joined_data_preview
 joined_data %>%
     select(
         c(
-            "release_year.x",
-            "runtime",
-            "imdb_score",
-            "imdb_votes"
+            release_year.x,
+            runtime,
+            imdb_score,
+            imdb_votes
         )
     ) %>% summary()
 ```
@@ -172,12 +184,62 @@ joined_data %>%
 ```{r}
 joined_data %>%
     select(
-        "type.x",
-        "country",
-        "listed_in",
-        "age_certification"
+        type.x,
+        age_certification
     ) %>%
     lapply(table)
+```
+
+In the joined datasets, the categories country and cast and type contains mutiple values. So we ectact those columns, split the values and crate a pivot table to summarized it.
+
+```{r}
+library(treemapify)
+
+tree_plot_countries <- joined_data %>%
+  separate_rows(country, sep = ",\\s*") %>% # \\s* removes the space after the comma
+  filter(!is.na(country) & country != "") %>% # Exclude NAs or not empty entries
+  count(country, name = "count") %>%
+  slice_max(count, n = 15) # Select top 15 countries
+
+# Treemap-Plot
+ggplot(
+    tree_plot_countries,
+    aes(
+        area = count,
+        fill = country,
+        label = country)) +
+  geom_treemap() +
+  geom_treemap_text(
+    colour = "white",
+    place = "centre",
+    grow = TRUE
+  ) +
+  theme(legend.position = "none") +
+  labs(title = "Countries (Treemap)")
+```
+
+```{r}
+tree_plot_genre <- joined_data %>%
+  separate_rows(listed_in, sep = ",\\s*") %>% # \\s* removes the space after the comma
+  filter(!is.na(listed_in) & listed_in != "") %>% # Exclude NAs or not empty genres
+  count(listed_in, name = "count") %>%
+  slice_max(count, n = 15) # Select top 15 genres
+
+# Treemap-Plot
+ggplot(
+    tree_plot_genre,
+    aes(
+        area = count,
+        fill = listed_in,
+        label = listed_in)) +
+  geom_treemap() +
+  geom_treemap_text(
+    colour = "white",
+    place = "centre",
+    grow = TRUE
+  ) +
+  theme(legend.position = "none") +
+  labs(title = "Genres (Treemap)")
 ```
 
 ## Statistical Analysis & Methodology
