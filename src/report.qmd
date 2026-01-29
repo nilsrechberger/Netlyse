@@ -18,12 +18,11 @@ This project aims to analyse the development of Netflix’s content catalogue us
 
 ### A brief History of Netflix
 
-Netflix is an subscription video on-demand streaming service based in the USA. The service primarily distributes original and acquired films and television shows from various genres, and it is available internationally in multiple languages^[https://en.wikipedia.org/wiki/Netflix].
+Netflix is a subscription-based video-on-demand streaming service founded in the United States in 1997. Initially, the company operated as a mail-based DVD rental service, offering customers access to a broad catalogue of films without the physical limitations of traditional video rental stores. This business model allowed Netflix to compete directly with established retailers such as Blockbuster by leveraging a so-called “long tail” strategy, in which a large number of niche titles collectively generated significant demand.
 
-In the early 2000s, Netflix was launched as a mail-based rental business. With this new business model, Neftlix directly compete with Blockbuster, which was one of the biggest player in this time. Not restricted to the size of a retail store, Netflix could offer hundreds of thousands of DVDs to customers in a long tail business model.
+In the mid-2000s, advances in internet infrastructure, including increased bandwidth and reduced data transfer costs, enabled Netflix to fundamentally transform its business model. The introduction of online streaming marked a decisive shift away from physical media and positioned Netflix at the forefront of digital content delivery. This transition not only reduced distribution costs but also allowed the company to collect detailed, real-time data on user behaviour.
 
-But with the fast tecnical transformation in the later 2000s, Netflix needed to refocus there businnes model. By the mid-2000s data speeds and bandwidth costs improved sufficiently to allow customers to download movies from the internet instead to order them by mail.
-
+Over time, Netflix increasingly invested in original content production, launching its first original series in the early 2010s. This strategic move reduced dependence on external content providers and enabled greater control over intellectual property. Simultaneously, Netflix expanded aggressively into international markets, commissioning locally produced content in multiple languages and targeting diverse regional audiences. These developments have resulted in a highly heterogeneous catalogue, making Netflix an ideal subject for empirical analysis of global content strategies.
 ### An Analytical View
 
 Netflix had long closely analyzed its customers' preferences. Watch Now gave the company real-time data on their behavior, such as scenes that customers replayed or skipped, or when they stopped watching a show^[https://www.nplusonemag.com/issue-49/essays/casual-viewing/].
