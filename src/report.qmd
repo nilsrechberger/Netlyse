@@ -10,6 +10,12 @@ format: pdf
 
 ## Introduction
 
+Over the past two decades, digital streaming platforms have fundamentally transformed the way audiovisual content is produced, distributed, and consumed. Among these platforms, Netflix has emerged as a dominant global actor, reshaping not only viewing habits but also the structure of the entertainment industry itself. With a presence in more than 190 countries and a continuously expanding catalogue of movies and television shows, Netflix offers a unique case for data-driven analysis of global media production and consumption.
+
+The rapid growth of Netflix has been accompanied by significant strategic shifts. These include a transition from licensed content to original productions, an increased emphasis on episodic television formats, and a strong focus on international markets. As a result, Netflix’s content catalogue reflects both technological change and broader cultural and economic trends within the global media landscape. Understanding how this catalogue has evolved over time provides valuable insights into platform strategy, audience targeting, and the globalization of media content.
+
+This project aims to analyse the development of Netflix’s content catalogue using publicly available datasets and reproducible data analysis methods implemented in R and Quarto. By combining metadata on Netflix titles with audience evaluation data from IMDb, the analysis seeks to explore patterns of content growth, composition, geographical diversity, and audience reception. Rather than focusing on individual titles, the study adopts a macro-level perspective, treating Netflix’s catalogue as a dynamic dataset that evolves over time.
+
 ### A brief History of Netflix
 
 Netflix is an subscription video on-demand streaming service based in the USA. The service primarily distributes original and acquired films and television shows from various genres, and it is available internationally in multiple languages^[https://en.wikipedia.org/wiki/Netflix].
