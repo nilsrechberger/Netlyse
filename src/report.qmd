@@ -132,14 +132,53 @@ source("scripts/01_join_data.R") # Self build utility script
 joined_data <- readr::read_csv(
     file = "data/joined_data.csv",
     quote = "\""
-) %>% dplyr::select(
-    c("title", "country", "duration", "type.y", "imdb_score")
+    )
+
+# Create a data preview for report
+joined_data_preview <- joined_data_preview %>% 
+    dplyr::select(
+        c(
+            "title",
+            "country",
+            "duration",
+            "type.y",
+            "imdb_score"
+        )
 )
 
-joined_data
+joined_data_preview
 ```
 
 ## Exploratory Data Analysis
+
+### Statistics
+
+#### Numerical Values
+
+```{r}
+joined_data %>%
+    select(
+        c(
+            "release_year.x",
+            "runtime",
+            "imdb_score",
+            "imdb_votes"
+        )
+    ) %>% summary()
+```
+
+#### Categorical Values
+
+```{r}
+joined_data %>%
+    select(
+        "type.x",
+        "country",
+        "listed_in",
+        "age_certification"
+    ) %>%
+    lapply(table)
+```
 
 ## Statistical Analysis & Methodology
 
