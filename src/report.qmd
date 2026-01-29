@@ -2,7 +2,7 @@
 title: "Netlyse: A Netflix analysis with R and Quarto"
 author: "Faranak Rahimi & Nils Rechberger"
 date: "January 2026"
-toc: true
+toc: false
 format: pdf
 ---
 
@@ -100,16 +100,16 @@ Together, these research questions provide a structured framework for analysing 
 
 ```{r}
 #| echo: false
-
+library(here)
 library(tidyverse)
-source("scripts/00_download_data.R") # Self build utility script
+source(here("scripts", "00_download_data.R")) # Self build utility script
 ```
 
 ```{r}
 #| echo: false
 
 netflix_data <- readr::read_csv(
-    file = "data/netflix_titles.csv",
+    file = here("data", "netflix_titles.csv"),
     quote = "\""
 ) %>% dplyr::select(
     c(
@@ -129,7 +129,7 @@ netflix_data
 #| echo: false
 
 imdb_data <- readr::read_csv(
-    file = "data/Netflix TV Shows and Movies.csv",
+    file = here("data", "Netflix TV Shows and Movies.csv"),
     quote = "\""
 ) %>% dplyr::select(
     c(
@@ -152,16 +152,16 @@ This approach was chosen for the following reasons:
 - Holistic Analysis: It allows for a comprehensive view of the data, enabling the identification of gaps or discrepancies between the merged datasets. 
 
 ```{r}
-source("scripts/01_join_data.R") # Self build utility script
+source(here("scripts", "01_join_data.R")) # Self build utility script
 
-joined_data <- readr::read_csv(
-    file = "data/joined_data.csv",
+joined_data <- read_csv(
+    file = here("data", "joined_data.csv"),
     quote = "\""
     )
 
 # Create a data preview for report
-joined_data_preview <- joined_data_preview %>% 
-    dplyr::select(
+joined_data_preview <- joined_data %>% 
+    select(
         c(
             title,
             country,
@@ -172,6 +172,12 @@ joined_data_preview <- joined_data_preview %>%
 )
 
 joined_data_preview
+```
+
+Due redudant columns (e.g. description.x, desxription.y) , we applied a cleaning step.
+
+```{r}
+source(here("scripts", "02_clean_data.R")) # Self build utility script
 ```
 
 ## Exploratory Data Analysis
@@ -185,7 +191,7 @@ library(ggplot2)
 #### Numerical Values
 
 ```{r}
-joined_data %>%
+clean_data %>%
     select(
         c(
             release_year.x,
@@ -199,7 +205,7 @@ joined_data %>%
 #### Categorical Values
 
 ```{r}
-joined_data %>%
+clean_data %>%
     select(
         type.x,
         age_certification
@@ -212,7 +218,7 @@ In the joined datasets, the categories country and cast and type contains mutipl
 ```{r}
 library(treemapify)
 
-tree_plot_countries <- joined_data %>%
+tree_plot_countries <- clean_data %>%
   separate_rows(country, sep = ",\\s*") %>% # \\s* removes the space after the comma
   filter(!is.na(country) & country != "") %>% # Exclude NAs or not empty entries
   count(country, name = "count") %>%
@@ -236,7 +242,7 @@ ggplot(
 ```
 
 ```{r}
-tree_plot_genre <- joined_data %>%
+tree_plot_genre <- clean_data %>%
   separate_rows(listed_in, sep = ",\\s*") %>% # \\s* removes the space after the comma
   filter(!is.na(listed_in) & listed_in != "") %>% # Exclude NAs or not empty genres
   count(listed_in, name = "count") %>%

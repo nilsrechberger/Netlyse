@@ -1,8 +1,9 @@
+library(here)
 library(readr)
 library(dplyr)
 
 clean_data <- read_csv(
-    file = "data/joined_data.csv",
+    file = here("data", "joined_data.csv"),
     quote = "\"") %>%
     # Remove redundant columns (e.g. description.x, description.y)
     select(
@@ -26,4 +27,7 @@ clean_data <- read_csv(
     )
 
 # Save joined data
-write_csv(joined_datasets, "data/clean_data.csv")
+write_csv(
+    x = joined_datasets,
+    file = here("data", "clean_data.csv")
+)

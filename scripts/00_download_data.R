@@ -1,9 +1,11 @@
+library(here)
+
 urls <- c(
   "netflix-shows" = "https://www.kaggle.com/api/v1/datasets/download/shivamb/netflix-shows",
   "netflix-imdb"  = "https://www.kaggle.com/api/v1/datasets/download/thedevastator/netflix-imdb-scores"
 )
 
-data_dir <- "data"
+data_dir <- here("data")
 
 if (!dir.exists(data_dir)) dir.create(data_dir)
 
