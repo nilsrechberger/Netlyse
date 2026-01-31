@@ -221,6 +221,11 @@ Following this preprocessing step, the data is aggregated by counting the number
 
 The resulting summaries are visualised using treemap plots. In these visualisations, the size of each rectangle represents the relative frequency of a country or genre within the dataset. Treemaps are particularly well suited for this purpose, as they provide an intuitive overview of proportional contributions and allow for easy comparison between categories. These visualisations support an exploratory understanding of the geographical and thematic composition of Netflix’s content catalogue.
 
+To visualise the most frequent producing countries and content genres, treemap plots are created. 
+For both variables, the multi-value entries are first expanded so that each country or genre appears 
+as a separate observation. The data is then aggregated by counting the frequency of each category, 
+and the analysis is restricted to the top 15 entries to ensure readability of the visualisations.
+
 ```{r}
 library(treemapify)
 
@@ -246,6 +251,16 @@ ggplot(
   theme(legend.position = "none") +
   labs(title = "Countries (Treemap)")
 ```
+The country treemap suggests that Netflix content production is concentrated in a small number of 
+countries. A few countries occupy the largest areas in the visualisation, indicating that they 
+contribute a substantial share of the titles in the dataset. At the same time, the presence of many 
+smaller rectangles highlights the involvement of a wide range of additional countries, each 
+contributing a smaller number of titles. This pattern reflects a combination of dominant production 
+markets and broader international diversity within Netflix’s catalogue.
+
+
+
+
 
 ```{r}
 tree_plot_genre <- clean_data %>%
@@ -270,6 +285,12 @@ ggplot(
   theme(legend.position = "none") +
   labs(title = "Genres (Treemap)")
 ```
+
+The genre treemap indicates that a limited number of genres account for a large proportion of 
+Netflix’s content catalogue. These dominant genres form the core of the platform’s offering, while 
+numerous other genres appear less frequently. The distribution suggests that Netflix combines widely 
+popular genres with a variety of more specialised categories, contributing to thematic diversity 
+across the catalogue.
 
 ## Statistical Analysis & Methodology
 
