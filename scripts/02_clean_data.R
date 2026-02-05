@@ -28,6 +28,6 @@ clean_data <- read_csv(
 
 # Save joined data
 write_csv(
-    x = joined_datasets,
+    x = clean_data,
     file = here("data", "clean_data.csv")
 )
