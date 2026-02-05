@@ -5,7 +5,7 @@ library(dplyr)
 clean_data <- read_csv(
     file = here("data", "joined_data.csv"),
     quote = "\"") %>%
-    # Remove redundant columns (e.g. description.x, description.y)
+    # Remove redundant columns (e.g. keep description.x, but remove description.y)
     select(
         c(
             show_id,
