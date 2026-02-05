@@ -213,6 +213,41 @@ clean_data %>%
     lapply(table)
 ```
 
+## Statistical Analysis & Methodology
+
+### Content over time
+
+```{r}
+time_series_plot <- clean_data %>%
+    count(release_year.x) %>%
+    ggplot(
+        aes(
+            x = release_year.x,
+            y = n
+        )
+    ) +
+    geom_line()
+
+time_series_plot
+```
+
+```{r}
+time_series_plot_zoom <- clean_data %>%
+    filter(release_year.x > 2000) %>%
+    count(release_year.x) %>%
+    ggplot(
+        aes(
+            x = release_year.x,
+            y = n
+        )
+    ) +
+    geom_line()
+
+time_series_plot_zoom
+```
+
+### Country and type distribution
+
 In the joined dataset, several variables contain multiple values within a single cell. In particular, the variables *country* and *listed_in* (genre) often include more than one entry, separated by commas. This structure reflects the fact that a single Netflix title can be associated with multiple producing countries and multiple genres. However, such a format is not suitable for aggregation and frequency analysis in its raw form.
 
 To address this issue, the values in these columns are first separated into individual entries. Each country or genre is extracted and treated as a separate observation. This transformation allows for a more accurate representation of how frequently each country and each genre appears across the Netflix catalogue. After splitting the values, records with missing or empty entries are removed to ensure data quality.
@@ -291,8 +326,6 @@ Netflix’s content catalogue. These dominant genres form the core of the platfo
 numerous other genres appear less frequently. The distribution suggests that Netflix combines widely 
 popular genres with a variety of more specialised categories, contributing to thematic diversity 
 across the catalogue.
-
-## Statistical Analysis & Methodology
 
 ## Time Series Forecasting
 
