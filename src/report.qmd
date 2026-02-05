@@ -215,35 +215,40 @@ clean_data %>%
 
 ## Statistical Analysis & Methodology
 
-### Content over time
+### Release Date vs. Date added
 
 ```{r}
-time_series_plot <- clean_data %>%
-    count(release_year.x) %>%
+library(lubridate)
+
+release_date_plot <- clean_data %>%
+    mutate(
+        date_added = mdy(
+            str_trim(
+                date_added
+            )
+        )
+    ) %>% 
+    drop_na(
+        date_added,
+        release_year.x
+    ) %>% 
     ggplot(
         aes(
-            x = release_year.x,
-            y = n
+            x = date_added,
+            y = release_year.x
         )
     ) +
-    geom_line()
+    geom_hex(bins = 30) +
+    scale_fill_viridis_c(option = "magma") +
+    theme_minimal() +
+    labs(
+        title = "Density analysis: Added vs. Year of publication",
+        x = "Date added",
+        y = "year of publication",
+        fill = "Amount"
+)
 
-time_series_plot
-```
-
-```{r}
-time_series_plot_zoom <- clean_data %>%
-    filter(release_year.x > 2000) %>%
-    count(release_year.x) %>%
-    ggplot(
-        aes(
-            x = release_year.x,
-            y = n
-        )
-    ) +
-    geom_line()
-
-time_series_plot_zoom
+release_date_plot
 ```
 
 ### Country and type distribution
