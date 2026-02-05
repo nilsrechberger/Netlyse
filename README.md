@@ -23,4 +23,11 @@ Netlyse is a static report analysis of Netflix movies and series based on R and 
 ## Idea
 
 TBD
-assesmment
+
+## Render `report.qmd`
+
+Make sure your in the root folder and run:
+
+```bash
+quarto render src/report.qmd --output-dir ../docs
+```
