@@ -49,11 +49,13 @@ The main research question aims to explore the structural development of Netflix
 
 To address this overarching research question in a structured manner, the following sub-questions are formulated. Each sub-question focuses on a specific aspect of Netflix’s content strategy and contributes to a deeper understanding of the platform’s evolution.
 
-### 1. How has the total number of Netflix titles changed over time?
+### 1. How does the relationship between release year and date added reflect Netflix’s strategy in balancing newly produced content with the acquisition and digitisation of older titles?
 
-This question examines the overall growth trajectory of Netflix’s content catalogue. By analysing changes in the number of titles available on the platform across different time periods, the study aims to identify patterns of expansion, acceleration, or potential saturation. Understanding how the catalogue size evolves over time provides important insights into Netflix’s investment behaviour, content acquisition strategy, and response to increasing competition within the streaming market.
+This question examines the relationship between the original release year of a title and the date it was added to Netflix in order to better understand the platform’s content acquisition strategy. By analysing how recently released productions compare to older titles in terms of when they appear in the catalogue, the study aims to identify whether Netflix primarily prioritises contemporary content or actively invests in digitising and licensing older films and series.
 
-Additionally, this question helps to contextualise subsequent analyses by establishing a baseline understanding of Netflix’s overall growth. A steadily increasing number of titles may indicate aggressive expansion, whereas periods of slower growth may reflect strategic consolidation or shifts in content priorities.
+Understanding this relationship provides insight into how Netflix balances freshness and relevance with catalogue depth. A strong concentration of recently released titles may indicate a focus on keeping the platform up to date and competitive, whereas the inclusion of older titles suggests a strategy of enriching the library with classics and historically significant content.
+
+This analysis helps to contextualise subsequent findings by offering a structural perspective on how the platform curates its catalogue over time, not just in terms of quantity, but in terms of the age profile of the content being added.
 
 ---
 
@@ -250,6 +252,12 @@ release_date_plot <- clean_data %>%
 
 release_date_plot
 ```
+The density plot illustrates the relationship between the year a title was released and the date it was added to Netflix. A strong concentration is visible in the upper-right area of the plot, indicating that many titles added to the platform were released only a few years earlier. This pattern suggests that Netflix places a strong emphasis on acquiring and distributing relatively recent productions.
+
+At the same time, the presence of titles with much older release years shows that the platform also incorporates older films and series into its catalogue. However, these titles appear less frequently and are more sparsely distributed, indicating that digitisation or acquisition of classic content plays a secondary role compared to the continuous addition of newer material.
+
+Overall, the visualisation suggests that Netflix’s content strategy prioritises contemporary titles while selectively enriching its catalogue with older productions, thereby maintaining a balance between current relevance and historical depth.
+
 
 ### Country and type distribution
 
