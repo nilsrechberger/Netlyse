@@ -225,7 +225,8 @@ library(lubridate)
 release_date_plot <- clean_data %>%
     mutate(
         date_added = mdy(
-            str_trim(
+            str_trim
+            (
                 date_added
             )
         )
@@ -252,11 +253,51 @@ release_date_plot <- clean_data %>%
 
 release_date_plot
 ```
+
 The density plot illustrates the relationship between the year a title was released and the date it was added to Netflix. A strong concentration is visible in the upper-right area of the plot, indicating that many titles added to the platform were released only a few years earlier. This pattern suggests that Netflix places a strong emphasis on acquiring and distributing relatively recent productions.
 
 At the same time, the presence of titles with much older release years shows that the platform also incorporates older films and series into its catalogue. However, these titles appear less frequently and are more sparsely distributed, indicating that digitisation or acquisition of classic content plays a secondary role compared to the continuous addition of newer material.
 
 Overall, the visualisation suggests that Netflix’s content strategy prioritises contemporary titles while selectively enriching its catalogue with older productions, thereby maintaining a balance between current relevance and historical depth.
+
+### Balance plot
+
+```{r}
+balance_facet_plot <- clean_data %>%
+    mutate(
+        date_added = mdy(
+            str_trim(
+                date_added
+            )
+        )
+    ) %>% 
+    drop_na(date_added) %>% 
+    mutate(
+        year_added = year(date_added),
+        month_added = month(date_added,
+        label = TRUE,
+        abbr = TRUE)
+    ) %>% 
+    filter(year_added >= 2016) %>%
+    count(
+        year_added,
+        month_added,
+        type.x) %>% 
+    ggplot(
+        aes(
+            x = month_added,
+            y = n,
+            fill = type.x
+        )
+    ) +
+    geom_col() + 
+    facet_wrap(
+        ~ year_added,
+        scales = "free_x") + 
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+balance_facet_plot
+```
 
 
 ### Country and type distribution
