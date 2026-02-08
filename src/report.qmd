@@ -261,6 +261,7 @@ At the same time, the presence of titles with much older release years shows tha
 Overall, the visualisation suggests that Netflix’s content strategy prioritises contemporary titles while selectively enriching its catalogue with older productions, thereby maintaining a balance between current relevance and historical depth.
 
 ### Balance plot
+To examine how the relative contribution of movies and TV shows has changed over time, the monthly number of titles added to the platform is visualised separately for each year.
 
 ```{r}
 balance_facet_plot <- clean_data %>%
@@ -298,6 +299,11 @@ balance_facet_plot <- clean_data %>%
 
 balance_facet_plot
 ```
+The balance plot illustrates how the number of movies and TV shows added to Netflix has evolved over time, broken down by month and year. Across all years, movies consistently account for a larger share of newly added titles, indicating that films remain a core component of the platform’s catalogue.
+
+At the same time, the presence of TV shows increases steadily over the observed period. In several months, especially in later years, the number of added series becomes more substantial, suggesting a growing emphasis on episodic content. This pattern aligns with Netflix’s strategic focus on long-form storytelling formats that can encourage sustained viewer engagement and retention.
+
+Overall, the visualisation indicates that while movies continue to dominate in terms of volume, TV shows represent an increasingly important component of the platform’s content mix. The evolving balance between these two content types reflects a gradual shift toward a more series-driven catalogue without fully replacing the importance of film-based offerings.
 
 
 ### Country and type distribution
