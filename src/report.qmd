@@ -346,16 +346,13 @@ ggplot(
   theme(legend.position = "none") +
   labs(title = "Countries (Treemap)")
 ```
+
 The country treemap suggests that Netflix content production is concentrated in a small number of 
 countries. A few countries occupy the largest areas in the visualisation, indicating that they 
 contribute a substantial share of the titles in the dataset. At the same time, the presence of many 
 smaller rectangles highlights the involvement of a wide range of additional countries, each 
 contributing a smaller number of titles. This pattern reflects a combination of dominant production 
 markets and broader international diversity within Netflix’s catalogue.
-
-
-
-
 
 ```{r}
 tree_plot_genre <- clean_data %>%
@@ -421,8 +418,20 @@ ranking_plot_genre <- clean_data %>%
 ranking_plot_genre
 ```
 
-
 ## Time Series Forecasting
+
+```{r}
+forecast_plot <- clean_data %>%
+    filter(!is.na(runtime), !is.na(imdb_score), imdb_votes >= 100) %>%
+    group_by(runtime) %>%
+    summarise(imdb_score = mean(imdb_score)) %>%
+    ggplot(aes(x = runtime, y = imdb_score)) + 
+    geom_point(alpha = 0.6) +
+    geom_smooth(method = "lm", formula = y ~ poly(x, 4), color = "blue", size = 1.2) +
+    theme_minimal()
+
+forecast_plot
+```
 
 ## Discussion
 
