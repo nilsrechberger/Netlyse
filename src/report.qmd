@@ -391,10 +391,10 @@ across the catalogue.
 
 ```{r}
 ranking_plot_genre <- clean_data %>%
-  separate_rows(listed_in, sep = ",\\s*") %>% 
-  filter(!is.na(listed_in) & listed_in != "") %>% 
-  filter(listed_in %in% (count(., listed_in, sort = TRUE) %>% top_n(10) %>% pull(listed_in))) %>%
-  ggplot(aes(x = listed_in, y = imdb_score, fill = listed_in)) +
+  separate_rows(country, sep = ",\\s*") %>% 
+  filter(!is.na(country) & country != "" & imdb_votes >= 100) %>% 
+  filter(country %in% (count(., country, sort = TRUE) %>% top_n(10, n) %>% pull(country))) %>%
+  ggplot(aes(x = imdb_score, y = country, fill = country)) +
   geom_boxplot(outlier.colour = "black", 
                outlier.shape = 16,
                outlier.size = 2, 
@@ -404,6 +404,23 @@ ranking_plot_genre <- clean_data %>%
 
 ranking_plot_genre
 ```
+
+```{r}
+ranking_plot_genre <- clean_data %>%
+  separate_rows(listed_in, sep = ",\\s*") %>% 
+  filter(!is.na(listed_in) & listed_in != "" & imdb_votes >= 100) %>% 
+  filter(listed_in %in% (count(., listed_in, sort = TRUE) %>% top_n(10, n) %>% pull(listed_in))) %>%
+  ggplot(aes(x = imdb_score, y = listed_in, fill = listed_in)) +
+  geom_boxplot(outlier.colour = "black", 
+               outlier.shape = 16,
+               outlier.size = 2, 
+               notch = FALSE) +
+  theme_minimal() +
+  guides(fill = "none")
+
+ranking_plot_genre
+```
+
 
 ## Time Series Forecasting
 
