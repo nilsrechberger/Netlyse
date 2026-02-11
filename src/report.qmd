@@ -75,15 +75,7 @@ By investigating which countries dominate the production of specific genres, thi
 
 ---
 
-### 4. How does the distribution of content types differ across producing countries?
-
-Building on the previous question, this question explores whether different countries tend to specialise in particular types of content for Netflix, such as movies or TV shows. Rather than focusing solely on the volume of content, this analysis examines qualitative differences in production patterns across countries.
-
-Understanding how content type distributions vary by country helps to identify regional production characteristics and potential cultural or industrial influences on content creation. This question also supports a more nuanced interpretation of Netflix’s international content strategy by highlighting differences not only in quantity but also in the nature of content produced.
-
----
-
-### 5. How are IMDb scores and IMDb vote counts distributed across Netflix titles, and how do they differ between movies and TV shows?
+### 4. How are IMDb scores and IMDb vote counts distributed across Netflix titles, and how do they differ between movies and TV shows?
 
 This question focuses on audience evaluation and popularity of Netflix titles using IMDb data. IMDb scores provide a measure of perceived content quality, while IMDb vote counts reflect the level of audience engagement and visibility of a title. Analysing both variables allows for a more comprehensive understanding of how Netflix content is received by viewers.
 
@@ -402,6 +394,11 @@ ranking_plot_genre <- clean_data %>%
 ranking_plot_genre
 ```
 
+The boxplot illustrates the distribution of IMDb scores across the ten countries that contribute the largest number of titles to the dataset. Rather than focusing on single high-scoring productions, the visualisation highlights the overall quality distribution within each country’s output.
+
+The results show that most countries have a relatively similar central tendency, with median scores generally concentrated in the mid-range around 6 to 7. This suggests that perceived content quality does not vary drastically between the major production countries represented on Netflix. At the same time, the spread of the boxplots indicates that each country produces both highly rated and more moderately rated titles.
+
+Some countries display wider variability, which may reflect a broader diversity of genres and production styles. Overall, the figure suggests that Netflix’s major content-producing countries contribute comparably in terms of average audience reception, with differences appearing more in variability than in central quality levels.
 ```{r}
 ranking_plot_genre <- clean_data %>%
   separate_rows(listed_in, sep = ",\\s*") %>% 
@@ -417,6 +414,12 @@ ranking_plot_genre <- clean_data %>%
 
 ranking_plot_genre
 ```
+This visualisation compares the distribution of IMDb scores across the ten most frequent content genres on Netflix. By examining the median, spread, and outliers of each genre, the plot provides insight into how audience evaluations differ depending on thematic category.
+
+The results indicate that certain genres tend to achieve consistently higher audience ratings, while others show greater variation. In particular, documentary and drama-related categories often exhibit higher median scores, suggesting stronger audience appreciation and perceived quality. In contrast, more entertainment-focused genres such as comedies and action-oriented content show a broader distribution of ratings, reflecting a mix of both highly successful and more average productions.
+
+Overall, the distribution suggests that genre plays an important role in shaping audience perception. While no single genre dominates completely, some categories appear more consistently associated with higher evaluation scores, indicating differences in how viewers respond to different types of storytelling.
+
 
 ## Time Series Forecasting
 
@@ -432,7 +435,11 @@ forecast_plot <- clean_data %>%
 
 forecast_plot
 ```
+The forecasting model explores the relationship between runtime and average IMDb score by fitting a smoothed polynomial trend line to the observed data. The scatterplot shows individual titles, while the fitted curve highlights the general pattern across different runtime lengths.
 
+The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
+
+At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
 ## Discussion
 
 ## Conclusion
