@@ -421,7 +421,18 @@ The results indicate that certain genres tend to achieve consistently higher aud
 Overall, the distribution suggests that genre plays an important role in shaping audience perception. While no single genre dominates completely, some categories appear more consistently associated with higher evaluation scores, indicating differences in how viewers respond to different types of storytelling.
 
 
-## Time Series Forecasting
+# Chapter of Choice: Forecasting Content Quality Based on Runtime
+
+This chapter presents an additional exploratory analysis that was not part of the core course content. 
+While the main sections of the report focus on descriptive insights into Netflix’s catalogue, this 
+section introduces a simple predictive modelling approach.
+
+The goal of this analysis is to explore whether structural characteristics of a title — in this case 
+runtime — are associated with differences in audience evaluation, measured by IMDb score. 
+Although this does not represent a formal forecasting model, it provides an example of how regression 
+techniques can be used to identify potential trends and relationships within the dataset.
+
+
 
 ```{r}
 forecast_plot <- clean_data %>%
