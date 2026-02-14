@@ -3,11 +3,7 @@ title: "Netlyse: A Netflix analysis with R and Quarto"
 author: "Faranak Rahimi & Nils Rechberger"
 date: "January 2026"
 toc: false
-format:
-  pdf:
-    echo: false
-    warning: false
-    message: false
+format: pdf
 ---
 
 ## Abstract
@@ -43,7 +39,6 @@ A defining characteristic of Netflix’s success lies in its systematic use of d
 From an analytical perspective, Netflix represents a data-rich ecosystem in which content characteristics, production contexts, and audience evaluations intersect. By analysing metadata such as release year, content type, country of production, and runtime alongside IMDb scores and vote counts, it becomes possible to explore both supply-side and demand-side dimensions of the platform. IMDb scores serve as a proxy for perceived content quality, while vote counts provide an indicator of popularity and audience engagement.
 
 This project adopts a quantitative, exploratory approach to analyse these dimensions. Using structured datasets and reproducible workflows, the analysis seeks to identify trends, distributions, and relationships within Netflix’s catalogue. The emphasis is not on causal inference, but on descriptive and comparative insights that contribute to a broader understanding of how a global streaming platform curates and positions its content over time.
-
 ## Research Questions
 
 ::: {.callout}
@@ -62,11 +57,15 @@ Understanding this relationship provides insight into how Netflix balances fresh
 
 This analysis helps to contextualise subsequent findings by offering a structural perspective on how the platform curates its catalogue over time, not just in terms of quantity, but in terms of the age profile of the content being added.
 
+---
+
 ### 2. How has the balance between movies and TV shows evolved on Netflix?
 
 This question focuses on changes in the composition of Netflix’s catalogue, specifically the relative proportions of movies and TV shows over time. Movies and TV shows differ significantly in production costs, audience engagement, and viewing behaviour, making this distinction particularly relevant for understanding Netflix’s strategic focus.
 
 By examining how the balance between these two content types has changed, the study aims to assess whether Netflix has increasingly prioritised episodic content, which often encourages longer viewer engagement, or whether movies continue to play a central role in the platform’s offering. This analysis contributes to understanding how Netflix aligns its content portfolio with user consumption patterns and long-term retention strategies.
+
+---
 
 ### 3. Which countries contribute the most content to Netflix, and how do their contributions differ across content genres?
 
@@ -74,13 +73,18 @@ This question examines the geographical composition of Netflix’s content catal
 
 By investigating which countries dominate the production of specific genres, this question aims to identify potential regional specialisations and production patterns. Such patterns may reflect cultural preferences, industry strengths, or strategic decisions by Netflix to invest in particular types of content in certain markets. This analysis contributes to a deeper understanding of Netflix’s global content strategy and its approach to genre diversification across regions.
 
+---
+
 ### 4. How are IMDb scores and IMDb vote counts distributed across Netflix titles, and how do they differ between movies and TV shows?
 
 This question focuses on audience evaluation and popularity of Netflix titles using IMDb data. IMDb scores provide a measure of perceived content quality, while IMDb vote counts reflect the level of audience engagement and visibility of a title. Analysing both variables allows for a more comprehensive understanding of how Netflix content is received by viewers.
 
 By examining the distribution of IMDb scores and vote counts across the catalogue, this question aims to identify general patterns in audience ratings and popularity. Furthermore, comparing movies and TV shows helps to assess whether episodic content and standalone productions differ in terms of viewer reception and engagement levels. This analysis contributes to understanding how content type influences both perceived quality and audience participation.
 
+---
+
 Together, these research questions provide a structured framework for analysing the evolution of Netflix’s content catalogue. They allow for a comprehensive examination of growth patterns, content composition, geographical diversity, and audience targeting, thereby supporting a holistic understanding of Netflix’s content strategy over time.
+
 
 ## Data Overview
 
@@ -134,12 +138,20 @@ imdb_data
 
 #### Join data
 
-The selection of an appropriate join strategy was a critical component of the data acquisition phase. To ensure the integrity and completeness of the final dataset, the team opted for a Full Outer Join.
+The selection of an appropriate join strategy was a critical component of the data acquisition phase. 
+To ensure the integrity and completeness of the final dataset, the team opted for a Full Outer Join.
 
 This approach was chosen for the following reasons:
 
 - Data Preservation: It ensures that no information is inadvertently lost during the merging process, even if the data is incomplete in one of the source tables.
-- Holistic Analysis: It allows for a comprehensive view of the data, enabling the identification of gaps or discrepancies between the merged datasets. 
+- Holistic Analysis: It allows for a comprehensive view of the data, enabling the identification of gaps or discrepancies between the merged datasets.
+
+The join combines two complementary datasets: one containing metadata about Netflix titles and 
+another containing IMDb ratings and vote counts. By linking these datasets, structural information 
+such as release year, country, and content type can be analysed together with audience evaluation 
+metrics. This merged dataset forms the foundation for all subsequent analyses presented in this report.
+
+
 
 ```{r}
 source(here("scripts", "01_join_data.R")) # Self build utility script
@@ -163,6 +175,16 @@ joined_data_preview <- joined_data %>%
 
 joined_data_preview
 ```
+#### Data preparation
+
+After merging the datasets, a cleaning step was applied to ensure that the data were consistent 
+and suitable for analysis. Redundant columns created during the join were identified and removed, 
+and missing values were handled where necessary.
+
+In addition, variable formats were standardised and categorical fields such as country and genre 
+were prepared for aggregation and visualisation. These steps ensured that the dataset was structured 
+and reliable for the subsequent exploratory and statistical analysis.
+
 
 Due redudant columns (e.g. description.x, desxription.y) , we applied a cleaning step.
 
@@ -447,8 +469,22 @@ The forecasting model explores the relationship between runtime and average IMDb
 The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
 
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
-
 ## Discussion
+
+# Use of Generative AI
+
+During this project, generative AI tools such as ChatGPT were used to support coding, debugging, 
+and structuring the report. AI was particularly helpful for explaining R functions, suggesting 
+visualisation ideas, and improving the clarity of written interpretations.
+
+To ensure correctness, all suggested code was tested and validated within R. Outputs were checked 
+manually and compared with expected results. In some cases, AI suggestions needed adaptation to 
+fit the structure of the dataset or project goals.
+
+Overall, AI served as a learning assistant rather than a replacement for understanding. It helped 
+accelerate problem solving and improved documentation quality, while all analytical decisions 
+remained under the control of the project team.
+
 
 ## Conclusion
 
