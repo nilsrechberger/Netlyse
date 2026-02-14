@@ -471,7 +471,7 @@ The results suggest a non-linear relationship between runtime and perceived qual
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
 ## Discussion
 
-# Use of Generative AI
+## Use of Generative AI
 
 During this project, generative AI tools such as ChatGPT were used to support coding, debugging, 
 and structuring the report. AI was particularly helpful for explaining R functions, suggesting 
@@ -487,6 +487,43 @@ remained under the control of the project team.
 
 
 ## Conclusion
+
+
+This project explored the evolution of Netflix’s content catalogue using a data-driven and exploratory approach. 
+By combining metadata on titles with IMDb audience evaluation metrics, the analysis aimed to identify structural 
+patterns in content growth, composition, geographical diversity, and perceived quality.
+
+The results suggest that Netflix places a strong emphasis on recently produced content while still incorporating 
+older titles to enrich its catalogue. The relationship between release year and date added indicates that the 
+platform prioritises contemporary productions, while selectively maintaining access to classic films and series. 
+This reflects a strategy that balances relevance with catalogue depth.
+
+The analysis of content composition shows that movies continue to dominate the platform in terms of volume. 
+However, TV shows have become increasingly important over time, supporting the idea that episodic content plays 
+a key role in encouraging longer viewer engagement and retention.
+
+Geographical and thematic analyses reveal that Netflix’s catalogue is shaped by a relatively small number of 
+dominant production countries and popular genres, while still maintaining diversity through contributions from 
+many smaller markets. The distribution of IMDb scores across countries and genres suggests that perceived content 
+quality is relatively consistent across major production regions, with differences appearing more in variability 
+than in average rating levels.
+
+The additional “Chapter of Choice” introduced an exploratory modelling approach to examine the relationship between 
+runtime and audience evaluation. The results indicate a weak non-linear association, where longer productions tend 
+to receive slightly higher ratings on average. However, the wide dispersion of scores across all runtime ranges 
+suggests that runtime alone is not a strong predictor of perceived quality.
+
+It is important to note that this study is descriptive and exploratory in nature. The analyses are based on available 
+metadata and IMDb metrics, which serve as proxies for quality and audience engagement but do not capture all aspects 
+of viewer behaviour. Furthermore, the models used in this project do not aim to establish causal relationships.
+
+Future work could extend this analysis by incorporating additional variables such as production budgets, viewer 
+statistics, or recommendation system data. More advanced predictive modelling techniques could also be applied to 
+better understand the factors influencing audience reception.
+
+Overall, this project provides a structured overview of how Netflix’s content catalogue has evolved over time and 
+offers insights into the platform’s content strategy, diversity, and audience perception.
+
 
 ## References
 
