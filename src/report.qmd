@@ -204,7 +204,13 @@ source(here("scripts", "02_clean_data.R")) # Self build utility script
 
 ```{r}
 library(ggplot2)
-theme_set(theme_minimal())
+# Set global plot config
+theme_set(
+    theme_minimal()+ 
+    theme(
+    legend.position = "bottom"
+    )
+)
 ```
 
 ### Statistics
@@ -286,7 +292,8 @@ At the same time, the presence of titles with much older release years shows tha
 
 Overall, the visualisation suggests that Netflix’s content strategy prioritises contemporary titles while selectively enriching its catalogue with older productions, thereby maintaining a balance between current relevance and historical depth.
 
-### Balance plot
+### Balance between movies and TV shows
+
 To examine how the relative contribution of movies and TV shows has changed over time, the monthly number of titles added to the platform is visualised separately for each year.
 
 ```{r}
@@ -323,14 +330,15 @@ balance_facet_plot <- clean_data %>%
         scales = "free_x") + 
     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
     labs(
-        title = "Relationship between release year and date added (Log Scale)",
-        x = "Date added",
-        y = "Year of Publication",
-        fill = "Amount (log)"
+        title = "Balance between movies and TV shows (Years 2016 to 2021)",
+        x = "",
+        y = "",
+        fill = "Added content"
     )
 
 balance_facet_plot
 ```
+ 
 The balance plot illustrates how the number of movies and TV shows added to Netflix has evolved over time, broken down by month and year. Across all years, movies consistently account for a larger share of newly added titles, indicating that films remain a core component of the platform’s catalogue.
 
 At the same time, the presence of TV shows increases steadily over the observed period. In several months, especially in later years, the number of added series becomes more substantial, suggesting a growing emphasis on episodic content. This pattern aligns with Netflix’s strategic focus on long-form storytelling formats that can encourage sustained viewer engagement and retention.
