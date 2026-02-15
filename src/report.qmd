@@ -99,28 +99,26 @@ Together, these research questions provide a structured framework for analysing 
 This dataset serves as a comprehensive archive of the Netflix library, capturing the evolution of the platform’s streaming offerings. It catalogs every movie and TV show available, providing a deep dive into the creative teams behind the titles, from directors to ensemble casts. By documenting critical attributes such as release years and playback durations, the data offers a holistic snapshot of how digital entertainment has shifted across different genres and regions.^[https://www.kaggle.com/datasets/shivamb/netflix-shows]
 
 ```{r}
-#| echo: false
 library(here)
 library(tidyverse)
+library(knitr)
 source(here("scripts", "00_download_data.R")) # Self build utility script
 ```
 
 ```{r}
-#| echo: false
-
 netflix_data <- readr::read_csv(
     file = here("data", "netflix_titles.csv"),
     quote = "\""
-) %>% dplyr::select(
-    c(
-        title,
-        country,
-        duration
+) %>% 
+    dplyr::select(title, country, duration)
+
+netflix_data %>% 
+    head(10) %>% 
+    kable(
+        col.names = c("Title", "Country", "Duration"),
+        caption = "Sample of Netflix Titles and their Origin",
+        align = "l" # Left-aligned
     )
-)
-
-netflix_data
-
 ```
 
 #### Dataset "Netflix IMDB Scores"
@@ -128,20 +126,19 @@ netflix_data
 The Netflix TV Shows and Movies dataset provides comprehensive information about various titles available on the popular streaming platform. The dataset includes details such as the title's name, its type (whether it is a TV show or a movie), a brief description of the content, the year it was released, age certification rating, runtime (for TV shows: length of episodes; for movies: duration), IMDb score, and IMDb votes.^[https://www.kaggle.com/datasets/thedevastator/netflix-imdb-scores]
 
 ```{r}
-#| echo: false
-
 imdb_data <- readr::read_csv(
     file = here("data", "Netflix TV Shows and Movies.csv"),
     quote = "\""
-) %>% dplyr::select(
-    c(
-        title,
-        type,
-        imdb_score
-    )
-)
+) %>% 
+    dplyr::select(title, type, imdb_score)
 
-imdb_data
+imdb_data %>% 
+    head(10) %>% 
+    kable(
+        col.names = c("Title", "Content Type", "IMDb Score"),
+        caption = "Overview of Netflix Titles and IMDb User Ratings",
+        align = "l" # Left-aligned
+    )
 ```
 
 #### Join data
@@ -167,19 +164,27 @@ source(here("scripts", "01_join_data.R")) # Self build utility script
 joined_data <- read_csv(
     file = here("data", "joined_data.csv"),
     quote = "\""
-    )
+)
 
-# Create a data preview for report
 joined_data_preview <- joined_data %>% 
     select(
-        c(
-            title,
-            country,
-            duration,
-            type.y,
-            imdb_score
-        )
-)
+        title,
+        country,
+        duration,
+        type.y,
+        imdb_score
+    ) %>% 
+    head(10) %>% 
+    mutate(
+        country = str_trunc(country, 20), # Space adjustment
+        title = str_trunc(title, 30) # Space adjustment
+    ) %>% 
+    kable(
+        col.names = c("Title", "Country", "Duration", "Type", "Score"),
+        caption = "Compact Preview of Joined Data",
+        align = "l",
+        digits = 1 # Space adjustment
+    )
 
 joined_data_preview
 ```
