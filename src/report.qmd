@@ -466,22 +466,6 @@ Some countries display wider variability, which may reflect a broader diversity 
 ranking_plot_genre <- clean_data %>%
   separate_rows(listed_in, sep = ",\\s*") %>% 
   filter(!is.na(listed_in) & listed_in != "" & imdb_votes >= 100) %>% 
-  filter(listed_in %in% (count(., listed_in, sort = TRUE) %>% top_n(10, n) %>% pull(listed_in))) %>%
-  ggplot(aes(x = imdb_score, y = listed_in, fill = listed_in)) +
-  geom_boxplot(outlier.colour = "black", 
-               outlier.shape = 16,
-               outlier.size = 2, 
-               notch = FALSE) +
-  theme_minimal() +
-  guides(fill = "none")
-
-ranking_plot_genre
-```
-
-```{r}
-ranking_plot_genre <- clean_data %>%
-  separate_rows(listed_in, sep = ",\\s*") %>% 
-  filter(!is.na(listed_in) & listed_in != "" & imdb_votes >= 100) %>% 
   # Filter for top 10 genres
   filter(listed_in %in% (count(., listed_in, sort = TRUE) %>% top_n(10, n) %>% pull(listed_in))) %>%
   mutate(listed_in = fct_reorder(listed_in, imdb_score, .fun = median)) %>% # Sort Boxplots by median
@@ -507,7 +491,6 @@ The results indicate that certain genres tend to achieve consistently higher aud
 
 Overall, the distribution suggests that genre plays an important role in shaping audience perception. While no single genre dominates completely, some categories appear more consistently associated with higher evaluation scores, indicating differences in how viewers respond to different types of storytelling.
 
-
 # Chapter of Choice: Forecasting Content Quality Based on Runtime
 
 This chapter presents an additional exploratory analysis that was not part of the core course content. 
@@ -519,8 +502,6 @@ runtime — are associated with differences in audience evaluation, measured by 
 Although this does not represent a formal forecasting model, it provides an example of how regression 
 techniques can be used to identify potential trends and relationships within the dataset.
 
-
-
 ```{r}
 forecast_plot <- clean_data %>%
     filter(!is.na(runtime), !is.na(imdb_score), imdb_votes >= 100) %>%
@@ -528,11 +509,18 @@ forecast_plot <- clean_data %>%
     summarise(imdb_score = mean(imdb_score)) %>%
     ggplot(aes(x = runtime, y = imdb_score)) + 
     geom_point(alpha = 0.6) +
-    geom_smooth(method = "lm", formula = y ~ poly(x, 4), color = "blue", size = 1.2) +
-    theme_minimal()
+    geom_smooth(method = "lm", formula = y ~ poly(x, 4), color = "steelblue", size = 1.2) +
+    labs(
+        title = "Influence of Runtime on IMDb Scores",
+        subtitle = "Trendline: 4th-degree polynomial regression (mean scores per minute)",
+        x = "Runtime (Minutes)",
+        y = "Average IMDb Score",
+        caption = "Note: Only includes titles with at least 100 votes"
+    )
 
 forecast_plot
 ```
+
 The forecasting model explores the relationship between runtime and average IMDb score by fitting a smoothed polynomial trend line to the observed data. The scatterplot shows individual titles, while the fitted curve highlights the general pattern across different runtime lengths.
 
 The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
