@@ -3,7 +3,11 @@ title: "Netlyse: A Netflix analysis with R and Quarto"
 author: "Faranak Rahimi & Nils Rechberger"
 date: "January 2026"
 toc: false
-format: pdf
+format:
+    pdf:
+        echo: false
+        warning: false
+        message: false
 ---
 
 ## Abstract
@@ -92,6 +96,8 @@ Together, these research questions provide a structured framework for analysing 
 
 #### Dataset "Netflix Movies and TV Shows"
 
+This dataset serves as a comprehensive archive of the Netflix library, capturing the evolution of the platform’s streaming offerings. It catalogs every movie and TV show available, providing a deep dive into the creative teams behind the titles, from directors to ensemble casts. By documenting critical attributes such as release years and playback durations, the data offers a holistic snapshot of how digital entertainment has shifted across different genres and regions.^[https://www.kaggle.com/datasets/shivamb/netflix-shows]
+
 ```{r}
 #| echo: false
 library(here)
@@ -118,6 +124,8 @@ netflix_data
 ```
 
 #### Dataset "Netflix IMDB Scores"
+
+The Netflix TV Shows and Movies dataset provides comprehensive information about various titles available on the popular streaming platform. The dataset includes details such as the title's name, its type (whether it is a TV show or a movie), a brief description of the content, the year it was released, age certification rating, runtime (for TV shows: length of episodes; for movies: duration), IMDb score, and IMDb votes.^[https://www.kaggle.com/datasets/thedevastator/netflix-imdb-scores]
 
 ```{r}
 #| echo: false
@@ -202,6 +210,12 @@ library(ggplot2)
 
 #### Numerical Values
 
+A descriptive statistical analysis was performed on the primary numerical variables to understand the scope and distribution of the Netflix catalog. This summary highlights key metrics across production timelines, content length, and audience reception:
+
+- Temporal Reach: The dataset spans nearly a century of cinema, with content dating back as far as 1925. However, the distribution is heavily skewed toward modern releases, as evidenced by a median release year of 2017 and a third-quartile mark of 2019, reflecting Netflix's rapid library expansion in recent years.
+- Content Runtime: The runtime of the available titles varies significantly, ranging from short-form content to epic-length features of up to 235 minutes. With a median runtime of 87 minutes, the library appears well-balanced between episodic TV formats and standard feature films.
+- Audience Engagement & Reception: Quality metrics sourced from IMDb reveal a diverse spectrum of critical acclaim. While the average IMDb score sits at a respectable 6.5, the scores range from a low of 1.5 to a near-perfect 9.6.
+
 ```{r}
 clean_data %>%
     select(
@@ -215,6 +229,17 @@ clean_data %>%
 ```
 
 #### Categorical Values
+
+Complementing the numerical data, the categorical analysis provides a clear picture of the dataset's structural diversity and its focus on specific audience demographics.
+
+- Content Type Distribution: The library shows a significant inclination toward cinematic content over episodic series. Out of the total categorized entries, 6158 are classified as Movies, while 2692 are identified as TV Shows. This indicates that while Netflix has aggressively expanded its television portfolio, feature films still comprise the majority of its indexed catalog.
+- Target Audience and Age Certification: The content is distributed across a wide variety of parental guidelines, reflecting a strategy aimed at diverse age groups.
+
+    - Adult and Mature Content: A substantial portion of the catalog is geared toward mature audiences, with 792 titles rated TV-MA and 548 rated R.
+    - Teen and General Audience: Content suitable for older children and teenagers is also prevalent, notably featuring 436 titles with a TV-14 rating and 424 with a PG-13 rating.
+    - Family and Children’s Programming: The dataset includes specialized classifications for younger viewers, such as TV-Y (94 titles) and TV-Y7 (104 titles), alongside more general family ratings like PG (238 titles) and G (105 titles).
+
+- Niche Classifications: Smaller segments of the library cater to highly specific regulatory categories, such as the 13 titles rated NC-17 and 72 titles rated TV-G, ensuring a truly global and comprehensive classification coverage.
 
 ```{r}
 clean_data %>%
