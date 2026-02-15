@@ -204,6 +204,7 @@ source(here("scripts", "02_clean_data.R")) # Self build utility script
 
 ```{r}
 library(ggplot2)
+theme_set(theme_minimal())
 ```
 
 ### Statistics
@@ -250,41 +251,31 @@ clean_data %>%
     lapply(table)
 ```
 
-## Statistical Analysis & Methodology
+## Vizualisations
 
-### Release Date vs. Date added
+### Relationship between release year and date added
 
 ```{r}
 library(lubridate)
 
 release_date_plot <- clean_data %>%
     mutate(
-        date_added = mdy(
-            str_trim
-            (
-                date_added
-            )
-        )
+        date_added = mdy(str_trim(date_added))
     ) %>% 
-    drop_na(
-        date_added,
-        release_year.x
-    ) %>% 
-    ggplot(
-        aes(
-            x = date_added,
-            y = release_year.x
-        )
-    ) +
+    drop_na(date_added, release_year.x) %>% 
+    ggplot(aes(x = date_added, y = release_year.x)) +
     geom_hex(bins = 30) +
-    scale_fill_viridis_c(option = "magma") +
-    theme_minimal() +
+    scale_fill_viridis_c(
+        option = "magma", 
+        trans = "log10", # Use log scale for even color distribution
+        labels = scales::label_number()
+    ) +
     labs(
-        title = "Density analysis: Added vs. Year of publication",
+        title = "Relationship between release year and date added (Log Scale)",
         x = "Date added",
-        y = "year of publication",
-        fill = "Amount"
-)
+        y = "Year of Publication",
+        fill = "Amount (log)"
+    )
 
 release_date_plot
 ```
@@ -330,7 +321,13 @@ balance_facet_plot <- clean_data %>%
     facet_wrap(
         ~ year_added,
         scales = "free_x") + 
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    labs(
+        title = "Relationship between release year and date added (Log Scale)",
+        x = "Date added",
+        y = "Year of Publication",
+        fill = "Amount (log)"
+    )
 
 balance_facet_plot
 ```
