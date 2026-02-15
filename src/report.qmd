@@ -346,7 +346,7 @@ At the same time, the presence of TV shows increases steadily over the observed 
 Overall, the visualisation indicates that while movies continue to dominate in terms of volume, TV shows represent an increasingly important component of the platform’s content mix. The evolving balance between these two content types reflects a gradual shift toward a more series-driven catalogue without fully replacing the importance of film-based offerings.
 
 
-### Country and type distribution
+### Which Countries Contribute the most?
 
 In the joined dataset, several variables contain multiple values within a single cell. In particular, the variables *country* and *listed_in* (genre) often include more than one entry, separated by commas. This structure reflects the fact that a single Netflix title can be associated with multiple producing countries and multiple genres. However, such a format is not suitable for aggregation and frequency analysis in its raw form.
 
@@ -384,7 +384,11 @@ ggplot(
     grow = TRUE
   ) +
   theme(legend.position = "none") +
-  labs(title = "Countries (Treemap)")
+  labs(
+        title = "Country with the largest contribution",
+        x = "",
+        y = ""
+    )
 ```
 
 The country treemap suggests that Netflix content production is concentrated in a small number of 
@@ -415,7 +419,11 @@ ggplot(
     grow = TRUE
   ) +
   theme(legend.position = "none") +
-  labs(title = "Genres (Treemap)")
+  labs(
+        title = "Genres with the most content contributions",
+        x = "",
+        y = ""
+    )
 ```
 
 The genre treemap indicates that a limited number of genres account for a large proportion of 
@@ -424,20 +432,26 @@ numerous other genres appear less frequently. The distribution suggests that Net
 popular genres with a variety of more specialised categories, contributing to thematic diversity 
 across the catalogue.
 
-### IMDB Ranking over Countries and Genres
+### IMDb scores and IMDb vote counts
 
 ```{r}
 ranking_plot_genre <- clean_data %>%
   separate_rows(country, sep = ",\\s*") %>% 
-  filter(!is.na(country) & country != "" & imdb_votes >= 100) %>% 
+  filter(!is.na(country) & country != "" & imdb_votes >= 100) %>%
+  # Filter for top 10 countires
   filter(country %in% (count(., country, sort = TRUE) %>% top_n(10, n) %>% pull(country))) %>%
+  mutate(country = fct_reorder(country, imdb_score, .fun = median)) %>% # Sort Boxplots by median
   ggplot(aes(x = imdb_score, y = country, fill = country)) +
   geom_boxplot(outlier.colour = "black", 
                outlier.shape = 16,
                outlier.size = 2, 
                notch = FALSE) +
-  theme_minimal() +
-  guides(fill = "none")
+  guides(fill = "none") +
+  labs(
+    title = "Countries by IMDb Score (Ordered by Median)",
+    x = "IMDb Score",
+    y = "Country"
+  )
 
 ranking_plot_genre
 ```
@@ -447,6 +461,7 @@ The boxplot illustrates the distribution of IMDb scores across the ten countries
 The results show that most countries have a relatively similar central tendency, with median scores generally concentrated in the mid-range around 6 to 7. This suggests that perceived content quality does not vary drastically between the major production countries represented on Netflix. At the same time, the spread of the boxplots indicates that each country produces both highly rated and more moderately rated titles.
 
 Some countries display wider variability, which may reflect a broader diversity of genres and production styles. Overall, the figure suggests that Netflix’s major content-producing countries contribute comparably in terms of average audience reception, with differences appearing more in variability than in central quality levels.
+
 ```{r}
 ranking_plot_genre <- clean_data %>%
   separate_rows(listed_in, sep = ",\\s*") %>% 
@@ -462,6 +477,30 @@ ranking_plot_genre <- clean_data %>%
 
 ranking_plot_genre
 ```
+
+```{r}
+ranking_plot_genre <- clean_data %>%
+  separate_rows(listed_in, sep = ",\\s*") %>% 
+  filter(!is.na(listed_in) & listed_in != "" & imdb_votes >= 100) %>% 
+  # Filter for top 10 genres
+  filter(listed_in %in% (count(., listed_in, sort = TRUE) %>% top_n(10, n) %>% pull(listed_in))) %>%
+  mutate(listed_in = fct_reorder(listed_in, imdb_score, .fun = median)) %>% # Sort Boxplots by median
+  ggplot(aes(x = imdb_score, y = listed_in, fill = listed_in)) +
+  geom_boxplot(outlier.colour = "black", 
+               outlier.shape = 16,
+               outlier.size = 2, 
+               notch = FALSE) +
+  guides(fill = "none") +
+  labs(
+    title = "IMDb Scores by Genre (Top 10 by Frequency)",
+    subtitle = "Ordered by median score",
+    x = "IMDb Score",
+    y = "Genre"
+  )
+
+ranking_plot_genre
+```
+
 This visualisation compares the distribution of IMDb scores across the ten most frequent content genres on Netflix. By examining the median, spread, and outliers of each genre, the plot provides insight into how audience evaluations differ depending on thematic category.
 
 The results indicate that certain genres tend to achieve consistently higher audience ratings, while others show greater variation. In particular, documentary and drama-related categories often exhibit higher median scores, suggesting stronger audience appreciation and perceived quality. In contrast, more entertainment-focused genres such as comedies and action-oriented content show a broader distribution of ratings, reflecting a mix of both highly successful and more average productions.
