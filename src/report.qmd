@@ -526,22 +526,10 @@ The forecasting model explores the relationship between runtime and average IMDb
 The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
 
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
+
 ## Discussion
 
-## Use of Generative AI
-
-During this project, generative AI tools such as ChatGPT were used to support coding, debugging, 
-and structuring the report. AI was particularly helpful for explaining R functions, suggesting 
-visualisation ideas, and improving the clarity of written interpretations.
-
-To ensure correctness, all suggested code was tested and validated within R. Outputs were checked 
-manually and compared with expected results. In some cases, AI suggestions needed adaptation to 
-fit the structure of the dataset or project goals.
-
-Overall, AI served as a learning assistant rather than a replacement for understanding. It helped 
-accelerate problem solving and improved documentation quality, while all analytical decisions 
-remained under the control of the project team.
-
+TBD
 
 ## Conclusion
 
@@ -581,7 +569,17 @@ better understand the factors influencing audience reception.
 Overall, this project provides a structured overview of how Netflix’s content catalogue has evolved over time and 
 offers insights into the platform’s content strategy, diversity, and audience perception.
 
+## Use of Generative AI
 
-## References
+During this project, generative AI tools such as ChatGPT were used to support coding, debugging, 
+and structuring the report. AI was particularly helpful for explaining R functions, suggesting 
+visualisation ideas, and improving the clarity of written interpretations.
 
-## Appendix
+To ensure correctness, all suggested code was tested and validated within R. Outputs were checked 
+manually and compared with expected results. In some cases, AI suggestions needed adaptation to 
+fit the structure of the dataset or project goals.
+
+Overall, AI served as a learning assistant rather than a replacement for understanding. It helped 
+accelerate problem solving and improved documentation quality, while all analytical decisions 
+remained under the control of the project team.
+
