@@ -183,8 +183,8 @@ joined_data_preview <- joined_data %>%
         title = str_trunc(title, 30) # Space adjustment
     ) %>% 
     kable(
-        col.names = c("Title", "Country", "Duration", "Type", "Score"),
-        caption = "Compact Preview of Joined Data",
+        col.names = c("Title", "Country", "Duration", "Type", "IMDb Score"),
+        caption = "Preview of Joined Data",
         align = "l",
         digits = 1 # Space adjustment
     )
@@ -236,14 +236,17 @@ A descriptive statistical analysis was performed on the primary numerical variab
 
 ```{r}
 clean_data %>%
-    select(
-        c(
-            release_year.x,
-            runtime,
-            imdb_score,
-            imdb_votes
-        )
-    ) %>% summary()
+  select(
+    release_year.x,
+    runtime,
+    imdb_score,
+    imdb_votes) %>%
+  summary() %>%
+  kable(
+    col.names = c("Release Year", "Runtime", "IMDb Score", "IMDb Votes"),
+    caption = "Summary numerical values",
+    align = "l"
+  )
 ```
 
 #### Categorical Values
@@ -265,7 +268,16 @@ clean_data %>%
         type.x,
         age_certification
     ) %>%
-    lapply(table)
+    pivot_longer(everything()) %>%
+    count(
+        name,
+        value
+    ) %>%
+    kable(
+        col.names = c("Variable", "Category", "Value"),
+        caption = "Summary categorical values",
+        align = "l"
+    )
 ```
 
 {{< pagebreak >}}
