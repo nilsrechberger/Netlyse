@@ -584,8 +584,6 @@ At the same time, the wide dispersion of points demonstrates that runtime alone 
 
 ## Discussion
  
-# Discussion
-
 The analyses presented in this study provide a descriptive overview of how Netflix’s content 
 catalogue has evolved over time, highlighting patterns in content acquisition, composition, 
 geographical distribution, and audience perception. Taken together, the findings suggest that 
