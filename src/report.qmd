@@ -114,6 +114,9 @@ netflix_data <- readr::read_csv(
 
 netflix_data %>% 
     head(10) %>% 
+    mutate(
+        country = str_trunc(country, 20), # Space adjustment
+    )
     kable(
         col.names = c("Title", "Country", "Duration"),
         caption = "Sample of Netflix Titles and their Origin",
