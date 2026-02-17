@@ -43,6 +43,7 @@ A defining characteristic of Netflix’s success lies in its systematic use of d
 From an analytical perspective, Netflix represents a data-rich ecosystem in which content characteristics, production contexts, and audience evaluations intersect. By analysing metadata such as release year, content type, country of production, and runtime alongside IMDb scores and vote counts, it becomes possible to explore both supply-side and demand-side dimensions of the platform. IMDb scores serve as a proxy for perceived content quality, while vote counts provide an indicator of popularity and audience engagement.
 
 This project adopts a quantitative, exploratory approach to analyse these dimensions. Using structured datasets and reproducible workflows, the analysis seeks to identify trends, distributions, and relationships within Netflix’s catalogue. The emphasis is not on causal inference, but on descriptive and comparative insights that contribute to a broader understanding of how a global streaming platform curates and positions its content over time.
+
 ## Research Questions
 
 ::: {.callout}
@@ -89,6 +90,7 @@ By examining the distribution of IMDb scores and vote counts across the catalogu
 
 Together, these research questions provide a structured framework for analysing the evolution of Netflix’s content catalogue. They allow for a comprehensive examination of growth patterns, content composition, geographical diversity, and audience targeting, thereby supporting a holistic understanding of Netflix’s content strategy over time.
 
+{{< pagebreak >}}
 
 ## Data Overview
 
@@ -159,8 +161,6 @@ another containing IMDb ratings and vote counts. By linking these datasets, stru
 such as release year, country, and content type can be analysed together with audience evaluation 
 metrics. This merged dataset forms the foundation for all subsequent analyses presented in this report.
 
-
-
 ```{r}
 source(here("scripts", "01_join_data.R")) # Self build utility script
 
@@ -191,6 +191,9 @@ joined_data_preview <- joined_data %>%
 
 joined_data_preview
 ```
+
+{{< pagebreak >}}
+
 #### Data preparation
 
 After merging the datasets, a cleaning step was applied to ensure that the data were consistent 
@@ -264,6 +267,8 @@ clean_data %>%
     ) %>%
     lapply(table)
 ```
+
+{{< pagebreak >}}
 
 ## Vizualisations
 
@@ -534,6 +539,8 @@ The forecasting model explores the relationship between runtime and average IMDb
 The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
 
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
+
+{{< pagebreak >}}
 
 ## Discussion
 
