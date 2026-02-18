@@ -583,8 +583,56 @@ At the same time, the wide dispersion of points demonstrates that runtime alone 
 
 
 ## Discussion
+ 
+The analyses presented in this study provide a descriptive overview of how Netflix’s content 
+catalogue has evolved over time, highlighting patterns in content acquisition, composition, 
+geographical distribution, and audience perception. Taken together, the findings suggest that 
+Netflix follows a strategy that balances the continuous addition of recent productions with 
+selective inclusion of older titles, while simultaneously expanding its global and thematic reach.
 
-TBD
+The relationship between release year and date added indicates that Netflix prioritises 
+contemporary content, with many titles appearing on the platform shortly after their original 
+release. This pattern reflects the importance of keeping the catalogue current and competitive 
+in a fast-moving streaming market. At the same time, the presence of older films and series 
+suggests that Netflix also invests in maintaining catalogue depth by preserving access to 
+classics and historically significant content.
+
+The balance analysis between movies and TV shows reveals that films continue to dominate in 
+terms of overall volume. However, the steady growth in the number of TV shows added over time 
+points toward an increasing strategic emphasis on episodic formats. Series-based content often 
+encourages longer viewing sessions and sustained platform engagement, which may explain the 
+gradual shift toward a more series-driven catalogue without fully replacing film-based offerings.
+
+The geographical and genre analyses further highlight the platform’s global scope. A relatively 
+small number of countries contribute a large share of the available content, reflecting the 
+dominance of established production markets. At the same time, the presence of many smaller 
+contributors indicates increasing international diversification. Similarly, a limited number of 
+genres account for a large proportion of titles, suggesting a focus on widely appealing content 
+while still maintaining thematic diversity.
+
+Audience evaluation patterns, as reflected in IMDb scores, show that perceived content quality 
+is relatively consistent across major production countries. Differences appear more in variability 
+than in average rating levels, suggesting that strong and weaker titles are produced across all 
+regions. Genre, however, appears to play a more noticeable role, with documentary and drama-related 
+content often receiving slightly higher evaluations than more entertainment-focused categories.
+
+The exploratory modelling in the Chapter of Choice provides an additional perspective by examining 
+the relationship between runtime and audience perception. While a weak non-linear trend is visible, 
+the results confirm that runtime alone is not a decisive factor in determining perceived quality. 
+This reinforces the broader observation that audience reception is influenced by multiple interacting 
+factors rather than a single structural characteristic.
+
+Overall, the findings should be interpreted with caution. The analysis is based on publicly available 
+metadata and IMDb ratings, which represent only partial indicators of content success and audience 
+engagement. Factors such as production budgets, marketing strategies, recommendation algorithms, and 
+actual viewing behaviour are not captured in the dataset but likely play a significant role in shaping 
+the platform’s content strategy and reception.
+
+Despite these limitations, the study provides a coherent picture of how Netflix curates its catalogue 
+to remain both current and diverse. By combining recent productions with selected older titles, 
+balancing movies and series, and expanding internationally across countries and genres, Netflix 
+appears to pursue a content strategy that aims to maximise reach, engagement, and long-term relevance.
+
 
 ## Conclusion
 
