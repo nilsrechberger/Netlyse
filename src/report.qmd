@@ -90,8 +90,6 @@ By examining the distribution of IMDb scores and vote counts across the catalogu
 
 Together, these research questions provide a structured framework for analysing the evolution of Netflix’s content catalogue. They allow for a comprehensive examination of growth patterns, content composition, geographical diversity, and audience targeting, thereby supporting a holistic understanding of Netflix’s content strategy over time.
 
-
-
 ## Data Overview
 
 ### Data Sample
@@ -192,8 +190,6 @@ joined_data_preview <- joined_data %>%
 joined_data_preview
 ```
 
-
-
 #### Data preparation
 
 After merging the datasets, a cleaning step was applied to ensure that the data were consistent 
@@ -279,8 +275,6 @@ clean_data %>%
         align = "l"
     )
 ```
-
-
 
 ## Vizualisations
 
@@ -377,7 +371,6 @@ The balance plot illustrates how the number of movies and TV shows added to Netf
 At the same time, the presence of TV shows increases steadily over the observed period. In several months, especially in later years, the number of added series becomes more substantial, suggesting a growing emphasis on episodic content. This pattern aligns with Netflix’s strategic focus on long-form storytelling formats that can encourage sustained viewer engagement and retention.
 
 Overall, the visualisation indicates that while movies continue to dominate in terms of volume, TV shows represent an increasingly important component of the platform’s content mix. The evolving balance between these two content types reflects a gradual shift toward a more series-driven catalogue without fully replacing the importance of film-based offerings.
-
 
 ### Which Countries Contribute the most?
 
@@ -540,7 +533,7 @@ The results indicate that certain genres tend to achieve consistently higher aud
 
 Overall, the distribution suggests that genre plays an important role in shaping audience perception. While no single genre dominates completely, some categories appear more consistently associated with higher evaluation scores, indicating differences in how viewers respond to different types of storytelling.
 
-# Chapter of Choice: Forecasting Content Quality Based on Runtime
+## Chapter of Choice: Forecasting Content Quality Based on Runtime
 
 This chapter presents an additional exploratory analysis that was not part of the core course content. 
 While the main sections of the report focus on descriptive insights into Netflix’s catalogue, this 
@@ -579,8 +572,6 @@ The forecasting model explores the relationship between runtime and average IMDb
 The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
 
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
-
-
 
 ## Discussion
  
@@ -633,9 +624,7 @@ to remain both current and diverse. By combining recent productions with selecte
 balancing movies and series, and expanding internationally across countries and genres, Netflix 
 appears to pursue a content strategy that aims to maximise reach, engagement, and long-term relevance.
 
-
 ## Conclusion
-
 
 This project explored the evolution of Netflix’s content catalogue using a data-driven and exploratory approach. 
 By combining metadata on titles with IMDb audience evaluation metrics, the analysis aimed to identify structural 
@@ -672,7 +661,9 @@ better understand the factors influencing audience reception.
 Overall, this project provides a structured overview of how Netflix’s content catalogue has evolved over time and 
 offers insights into the platform’s content strategy, diversity, and audience perception.
 
-## Use of Generative AI
+## Project Information
+
+### Use of Generative AI
 
 During this project, generative AI tools such as ChatGPT were used to support coding, debugging, 
 and structuring the report. AI was particularly helpful for explaining R functions, suggesting 
@@ -686,3 +677,7 @@ Overall, AI served as a learning assistant rather than a replacement for underst
 accelerate problem solving and improved documentation quality, while all analytical decisions 
 remained under the control of the project team.
 
+
+### Team Roles & Contributions
+
+In this project, Faranak Rahimi & Nils Rechberger operated as a balanced leadership duo, each contributing equally to the final outcome through complementary roles. Nils Rechberger served as the Tech Lead, steering the technical roadmap and managing the overall project flow to ensure all milestones were met on schedule. Parallel to this, Faranak Rahimi focused on Code Quality and Strategic Alignment, overseeing the code review process and performing continuous gap analyses to ensure the project’s "as-is" state perfectly matched its intended "to-be" objectives. Together, their combined efforts ensured a high-quality delivery where management and technical integrity were given equal weight.
