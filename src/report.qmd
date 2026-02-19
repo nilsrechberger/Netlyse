@@ -9,18 +9,11 @@ lang: en
 toc: false
 format:
   pdf:
-    documentclass: scrartcl
-    papersize: a4
-    geometry:
-      - top=30mm
-      - left=25mm
-      - right=25mm
-      - bottom=30mm
     colorlinks: true
-    execute:
-      echo: false
-      warning: false
-      message: false
+execute:
+    echo: false
+    warning: false
+    message: false
 ---
 
 ## Abstract
@@ -103,7 +96,6 @@ By examining the distribution of IMDb scores across the catalogue, this question
 
 Together, these research questions provide a structured framework for analysing the evolution of Netflix’s content catalogue. They allow for a comprehensive examination of growth patterns, content composition, geographical diversity, and audience targeting, thereby supporting a holistic understanding of Netflix’s content strategy over time.
 
-{{< pagebreak >}}
 
 ## Data Overview
 
@@ -290,7 +282,7 @@ clean_data %>%
     )
 ```
 
-{{< pagebreak >}}
+ 
 
 ## Vizualisations
 
@@ -620,6 +612,8 @@ The forecasting model explores the relationship between runtime and average IMDb
 The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
 
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
+
+ 
 
 ## Discussion
  
