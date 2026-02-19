@@ -1,13 +1,26 @@
 ---
 title: "Netlyse: A Netflix analysis with R and Quarto"
-author: "Faranak Rahimi & Nils Rechberger"
+author: 
+  - name: Faranak Rahimi
+  - name: Nils Rechberger
 date: "2026-02-17"
+date-format: long
+lang: en
 toc: false
 format:
-    pdf:
-        echo: false
-        warning: false
-        message: false
+  pdf:
+    documentclass: scrartcl
+    papersize: a4
+    geometry:
+      - top=30mm
+      - left=25mm
+      - right=25mm
+      - bottom=30mm
+    colorlinks: true
+    execute:
+      echo: false
+      warning: false
+      message: false
 ---
 
 ## Abstract
