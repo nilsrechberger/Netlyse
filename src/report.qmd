@@ -27,9 +27,9 @@ format:
 
 Netflix has become one of the most influential global streaming platforms, offering a rapidly expanding catalogue of movies and television shows produced across a wide range of countries. As the platform continues to grow, understanding how its content catalogue evolves over time provides valuable insights into content strategy, internationalisation, and audience engagement. This project presents a data-driven analysis of Netflix’s content catalogue using publicly available datasets and reproducible analytical workflows implemented in R and Quarto.
 
-The analysis is based on two complementary datasets: a dataset containing metadata on Netflix movies and TV shows, and a dataset providing audience evaluation metrics from IMDb, including IMDb scores and vote counts. These datasets are combined to enable a comprehensive exploration of both supply-side characteristics, such as content type, release year, and country of production, and demand-side indicators related to audience reception and popularity.
+The analysis is based on two complementary datasets: a dataset containing metadata on Netflix movies and TV shows, and a dataset providing audience evaluation metrics from IMDb^[https://www.imdb.com/], including IMDb scores and vote counts. These datasets are combined to enable a comprehensive exploration of both supply-side characteristics, such as content type, release year, and country of production, and demand-side indicators related to audience reception and popularity.
 
-The study adopts an exploratory and descriptive analytical approach. It examines how the size and composition of Netflix’s catalogue have changed over time, with a particular focus on the balance between movies and TV shows and the geographical distribution of content production. In addition, the analysis explores patterns in IMDb scores and vote counts to assess how audience evaluation and engagement differ across content types.
+The study adopts an exploratory and descriptive analytical approach. It examines how the size and composition of Netflix’s catalogue have changed over time, with a particular focus on the balance between movies and TV shows and the geographical distribution of content production. In addition, the analysis investigates the relationship between the runtime of a content and its popularity among voters.
 
 Rather than aiming to establish causal relationships, the project seeks to identify trends, distributions, and structural patterns within Netflix’s catalogue. By combining descriptive statistics and visual exploration, the analysis provides an overview of Netflix’s content evolution and audience response. The findings contribute to a broader understanding of how a global streaming platform curates its content portfolio and how different types of content are perceived by audiences.
 
@@ -39,11 +39,11 @@ Over the past two decades, digital streaming platforms have fundamentally transf
 
 The rapid growth of Netflix has been accompanied by significant strategic shifts. These include a transition from licensed content to original productions, an increased emphasis on episodic television formats, and a strong focus on international markets. As a result, Netflix’s content catalogue reflects both technological change and broader cultural and economic trends within the global media landscape. Understanding how this catalogue has evolved over time provides valuable insights into platform strategy, audience targeting, and the globalization of media content.
 
-This project aims to analyse the development of Netflix’s content catalogue using publicly available datasets and reproducible data analysis methods implemented in R and Quarto. By combining metadata on Netflix titles with audience evaluation data from IMDb, the analysis seeks to explore patterns of content growth, composition, geographical diversity, and audience reception. Rather than focusing on individual titles, the study adopts a macro-level perspective, treating Netflix’s catalogue as a dynamic dataset that evolves over time.
+This project aims to analyse the development of Netflix’s content catalogue using publicly available datasets and reproducible data analysis methods implemented in R^[https://www.r-project.org/other-docs.html] and and presents with Quarto Markdown^[https://quarto.org/]. By combining metadata on Netflix titles with audience evaluation data from IMDb, the analysis seeks to explore patterns of content growth, composition, geographical diversity, and audience reception. Rather than focusing on individual titles, the study adopts a macro-level perspective, treating Netflix’s catalogue as a dynamic dataset that evolves over time.
 
 ### A brief History of Netflix
 
-Netflix is a subscription-based video-on-demand streaming service founded in the United States in 1997. Initially, the company operated as a mail-based DVD rental service, offering customers access to a broad catalogue of films without the physical limitations of traditional video rental stores. This business model allowed Netflix to compete directly with established retailers such as Blockbuster by leveraging a so-called “long tail” strategy, in which a large number of niche titles collectively generated significant demand.
+Netflix is a subscription-based video-on-demand streaming service founded in the United States in 1997^[https://en.wikipedia.org/wiki/Netflix]. Initially, the company operated as a mail-based DVD rental service, offering customers access to a broad catalogue of films without the physical limitations of traditional video rental stores. This business model allowed Netflix to compete directly with established retailers such as Blockbuster by leveraging a so-called “long tail” strategy, in which a large number of niche titles collectively generated significant demand.
 
 In the mid-2000s, advances in internet infrastructure, including increased bandwidth and reduced data transfer costs, enabled Netflix to fundamentally transform its business model. The introduction of online streaming marked a decisive shift away from physical media and positioned Netflix at the forefront of digital content delivery. This transition not only reduced distribution costs but also allowed the company to collect detailed, real-time data on user behaviour.
 
@@ -51,7 +51,7 @@ Over time, Netflix increasingly invested in original content production, launchi
 
 ### An Analytical View
 
-A defining characteristic of Netflix’s success lies in its systematic use of data to inform strategic decisions. Unlike traditional broadcasters, Netflix operates in a digital environment that enables continuous monitoring of user interactions, such as viewing duration, content completion rates, and engagement patterns. These data allow Netflix to optimise content recommendations, inform commissioning decisions, and evaluate audience response at scale.
+A defining characteristic of Netflix’s success lies in its systematic use of data to inform strategic decisions. Unlike traditional broadcasters, Netflix operates in a digital environment that enables continuous monitoring of user interactions, such as viewing duration, content completion rates, and engagement patterns. These data allow Netflix to optimise content recommendations, inform commissioning decisions, and evaluate audience response at scale.^[https://www.nplusonemag.com/issue-49/essays/casual-viewing/]
 
 From an analytical perspective, Netflix represents a data-rich ecosystem in which content characteristics, production contexts, and audience evaluations intersect. By analysing metadata such as release year, content type, country of production, and runtime alongside IMDb scores and vote counts, it becomes possible to explore both supply-side and demand-side dimensions of the platform. IMDb scores serve as a proxy for perceived content quality, while vote counts provide an indicator of popularity and audience engagement.
 
@@ -60,12 +60,12 @@ This project adopts a quantitative, exploratory approach to analyse these dimens
 ## Research Questions
 
 ::: {.callout}
-How has Netflix’s content catalogue evolved over time in terms of content type and country of production?
+How has Netflix’s content catalogue evolved over time?
 :::
 
 The main research question aims to explore the structural development of Netflix’s content catalogue over time. As one of the largest global streaming platforms, Netflix continuously adapts its content strategy to changing market conditions, audience preferences, and international expansion goals. By analysing trends in content growth, content type, and country of production, this study seeks to provide a comprehensive overview of how Netflix has shaped its catalogue and positioned itself within the global entertainment industry.
 
-To address this overarching research question in a structured manner, the following sub-questions are formulated. Each sub-question focuses on a specific aspect of Netflix’s content strategy and contributes to a deeper understanding of the platform’s evolution.
+To address this overarching research question in a structured manner, the following sub-questions are formulated. Each subquestion focuses on a specific aspect of Netflix’s content strategy and contributes to a deeper understanding of the platform’s evolution.
 
 ### 1. How does the relationship between release year and date added reflect Netflix’s strategy in balancing newly produced content with the acquisition and digitisation of older titles?
 
@@ -85,23 +85,25 @@ By examining how the balance between these two content types has changed, the st
 
 ---
 
-### 3. Which countries contribute the most content to Netflix, and how do their contributions differ across content genres?
+### 3. Which countries provide the most content for Netflix, and which genres were produced the most?
 
 This question examines the geographical composition of Netflix’s content catalogue with a particular focus on genre distribution. While overall content volume provides an indication of production intensity, analysing genres allows for a more nuanced understanding of how different countries contribute to the diversity of Netflix’s offerings.
 
-By investigating which countries dominate the production of specific genres, this question aims to identify potential regional specialisations and production patterns. Such patterns may reflect cultural preferences, industry strengths, or strategic decisions by Netflix to invest in particular types of content in certain markets. This analysis contributes to a deeper understanding of Netflix’s global content strategy and its approach to genre diversification across regions.
+By investigating the global distribution of content, this analysis identifies which countries dominate the production of specific genres, uncovering distinct regional specializations and production patterns. These trends often reflect local cultural preferences, established industry strengths, or Netflix’s strategic maneuvers to localize investment. Ultimately, this geographic breakdown provides a deeper understanding of Netflix’s international content strategy and its localized approach to genre diversification across different global markets.
 
 ---
 
-### 4. How are IMDb scores and IMDb vote counts distributed across Netflix titles, and how do they differ between movies and TV shows?
+### 4. How are IMDb scores distributed across countries and genres?
 
-This question focuses on audience evaluation and popularity of Netflix titles using IMDb data. IMDb scores provide a measure of perceived content quality, while IMDb vote counts reflect the level of audience engagement and visibility of a title. Analysing both variables allows for a more comprehensive understanding of how Netflix content is received by viewers.
+This question focuses on audience evaluation and popularity of Netflix titles using IMDb data. IMDb scores provide a measure of perceived content quality. Analysing variables like this allows for a more comprehensive understanding of how Netflix content is received by viewers.
 
-By examining the distribution of IMDb scores and vote counts across the catalogue, this question aims to identify general patterns in audience ratings and popularity. Furthermore, comparing movies and TV shows helps to assess whether episodic content and standalone productions differ in terms of viewer reception and engagement levels. This analysis contributes to understanding how content type influences both perceived quality and audience participation.
+By examining the distribution of IMDb scores across the catalogue, this question aims to identify general patterns in audience ratings and popularity. Furthermore, this analysis contributes to understanding how content type influences both perceived quality and audience participation.
 
 ---
 
 Together, these research questions provide a structured framework for analysing the evolution of Netflix’s content catalogue. They allow for a comprehensive examination of growth patterns, content composition, geographical diversity, and audience targeting, thereby supporting a holistic understanding of Netflix’s content strategy over time.
+
+{{< pagebreak >}}
 
 ## Data Overview
 
@@ -109,7 +111,7 @@ Together, these research questions provide a structured framework for analysing 
 
 #### Dataset "Netflix Movies and TV Shows"
 
-This dataset serves as a comprehensive archive of the Netflix library, capturing the evolution of the platform’s streaming offerings. It catalogs every movie and TV show available, providing a deep dive into the creative teams behind the titles, from directors to ensemble casts. By documenting critical attributes such as release years and playback durations, the data offers a holistic snapshot of how digital entertainment has shifted across different genres and regions.^[https://www.kaggle.com/datasets/shivamb/netflix-shows]
+This dataset serves as a comprehensive longitudinal archive of the Netflix library, chronicling the evolution of the platform’s global streaming catalog. It systematically catalogs every available movie and television production, offering detailed insights into the creative teams—ranging from directorial leadership to ensemble casts. By documenting core attributes such as release timelines, geographic origins, and playback durations, the data provides a holistic snapshot of the shifting landscape of digital entertainment across diverse genres and international markets.^[https://www.kaggle.com/datasets/shivamb/netflix-shows]
 
 ```{r}
 library(here)
@@ -119,42 +121,50 @@ source(here("scripts", "00_download_data.R")) # Self build utility script
 ```
 
 ```{r}
-netflix_data <- readr::read_csv(
+netflix_data <- read_csv(
     file = here("data", "netflix_titles.csv"),
     quote = "\""
 ) %>% 
-    dplyr::select(title, country, duration)
+select(
+    title,
+    country,
+    duration
+) %>% 
+head(10) %>% 
+mutate(
+    country = str_trunc(country, 20) # Space adjustment
+) %>%
+kable(
+    col.names = c("Title", "Country", "Duration"),
+    caption = "Sample of Netflix Titles and their Origin",
+    align = "l" # Left-aligned
+)
 
-netflix_data %>% 
-    head(10) %>% 
-    mutate(
-        country = str_trunc(country, 20), # Space adjustment
-    ) %>%
-    kable(
-        col.names = c("Title", "Country", "Duration"),
-        caption = "Sample of Netflix Titles and their Origin",
-        align = "l" # Left-aligned
-    )
+
 ```
 
-#### Dataset "Netflix IMDB Scores"
+#### Dataset "Netflix IMDb Scores"
 
-The Netflix TV Shows and Movies dataset provides comprehensive information about various titles available on the popular streaming platform. The dataset includes details such as the title's name, its type (whether it is a TV show or a movie), a brief description of the content, the year it was released, age certification rating, runtime (for TV shows: length of episodes; for movies: duration), IMDb score, and IMDb votes.^[https://www.kaggle.com/datasets/thedevastator/netflix-imdb-scores]
+The Netflix TV Shows and Movies dataset offers a robust repository of metadata for titles hosted on the platform. Beyond basic identifiers such as title and type (Movie or TV Show), the dataset encompasses descriptive content summaries and temporal data, including release years and age certification ratings. Crucially, it provides metrics for runtime—distinguishing between movie durations and episodic lengths—alongside critical audience indicators: IMDb scores and IMDb vote counts. These variables collectively facilitate a multi-dimensional analysis of both content structure and viewer reception.^[https://www.kaggle.com/datasets/thedevastator/netflix-imdb-scores]
 
 ```{r}
-imdb_data <- readr::read_csv(
+imdb_data <- read_csv(
     file = here("data", "Netflix TV Shows and Movies.csv"),
     quote = "\""
 ) %>% 
-    dplyr::select(title, type, imdb_score)
+select(
+    title,
+    type,
+    imdb_score
+) %>% 
+head(10) %>% 
+kable(
+    col.names = c("Title", "Content Type", "IMDb Score"),
+    caption = "Overview of Netflix Titles and IMDb User Ratings",
+    align = "l" # Left-aligned
+)
 
-imdb_data %>% 
-    head(10) %>% 
-    kable(
-        col.names = c("Title", "Content Type", "IMDb Score"),
-        caption = "Overview of Netflix Titles and IMDb User Ratings",
-        align = "l" # Left-aligned
-    )
+imdb_data
 ```
 
 #### Join data
@@ -178,43 +188,33 @@ source(here("scripts", "01_join_data.R")) # Self build utility script
 joined_data <- read_csv(
     file = here("data", "joined_data.csv"),
     quote = "\""
+) %>% 
+select(
+    title,
+    country,
+    duration,
+    type.y,
+    imdb_score
+) %>% 
+head(10) %>% 
+mutate(
+    country = str_trunc(country, 20), # Space adjustment
+    title = str_trunc(title, 30) # Space adjustment
+) %>% 
+kable(
+    col.names = c("Title", "Country", "Duration", "Type", "IMDb Score"),
+    caption = "Preview of Joined Data",
+    align = "l",
+    digits = 1 # Space adjustment
 )
 
-joined_data_preview <- joined_data %>% 
-    select(
-        title,
-        country,
-        duration,
-        type.y,
-        imdb_score
-    ) %>% 
-    head(10) %>% 
-    mutate(
-        country = str_trunc(country, 20), # Space adjustment
-        title = str_trunc(title, 30) # Space adjustment
-    ) %>% 
-    kable(
-        col.names = c("Title", "Country", "Duration", "Type", "IMDb Score"),
-        caption = "Preview of Joined Data",
-        align = "l",
-        digits = 1 # Space adjustment
-    )
-
-joined_data_preview
+joined_data
 ```
 
 #### Data preparation
 
 After merging the datasets, a cleaning step was applied to ensure that the data were consistent 
-and suitable for analysis. Redundant columns created during the join were identified and removed, 
-and missing values were handled where necessary.
-
-In addition, variable formats were standardised and categorical fields such as country and genre 
-were prepared for aggregation and visualisation. These steps ensured that the dataset was structured 
-and reliable for the subsequent exploratory and statistical analysis.
-
-
-Due redudant columns (e.g. description.x, desxription.y) , we applied a cleaning step.
+and suitable for analysis. Redundant columns ((e.g. description.x, description.y)) created during the join were identified and removed, and missing values were handled where necessary.
 
 ```{r}
 source(here("scripts", "02_clean_data.R")) # Self build utility script
@@ -224,6 +224,7 @@ source(here("scripts", "02_clean_data.R")) # Self build utility script
 
 ```{r}
 library(ggplot2)
+
 # Set global plot config
 theme_set(
     theme_minimal()+ 
@@ -245,17 +246,17 @@ A descriptive statistical analysis was performed on the primary numerical variab
 
 ```{r}
 clean_data %>%
-  select(
-    release_year.x,
-    runtime,
-    imdb_score,
-    imdb_votes) %>%
-  summary() %>%
-  kable(
-    col.names = c("Release Year", "Runtime", "IMDb Score", "IMDb Votes"),
-    caption = "Summary numerical values",
-    align = "l"
-  )
+    select(
+        release_year.x,
+        runtime,
+        imdb_score,
+        imdb_votes) %>%
+    summary() %>%
+    kable(
+        col.names = c("Release Year", "Runtime", "IMDb Score", "IMDb Votes"),
+        caption = "Summary numerical values",
+        align = "l"
+    )
 ```
 
 #### Categorical Values
@@ -289,9 +290,11 @@ clean_data %>%
     )
 ```
 
+{{< pagebreak >}}
+
 ## Vizualisations
 
-### Relationship between release year and date added
+### How does the relationship between release year and date added reflect Netflix’s strategy in balancing newly produced content with the acquisition and digitisation of older titles?
 
 ```{r}
 #| fig-width: 7
@@ -304,8 +307,16 @@ release_date_plot <- clean_data %>%
     mutate(
         date_added = mdy(str_trim(date_added))
     ) %>% 
-    drop_na(date_added, release_year.x) %>% 
-    ggplot(aes(x = date_added, y = release_year.x)) +
+    drop_na(
+        date_added,
+        release_year.x
+    ) %>% 
+    ggplot(
+        aes(
+            x = date_added,
+            y = release_year.x
+        )
+    ) +
     geom_hex(bins = 30) +
     scale_fill_viridis_c(
         option = "magma", 
@@ -328,7 +339,7 @@ At the same time, the presence of titles with much older release years shows tha
 
 Overall, the visualisation suggests that Netflix’s content strategy prioritises contemporary titles while selectively enriching its catalogue with older productions, thereby maintaining a balance between current relevance and historical depth.
 
-### Balance between movies and TV shows
+### How has the balance between movies and TV shows evolved on Netflix?
 
 To examine how the relative contribution of movies and TV shows has changed over time, the monthly number of titles added to the platform is visualised separately for each year.
 
@@ -352,7 +363,7 @@ balance_facet_plot <- clean_data %>%
         label = TRUE,
         abbr = TRUE)
     ) %>% 
-    filter(year_added >= 2016) %>%
+    filter(year_added >= 2016) %>% # Only show since 2016 for better view
     count(
         year_added,
         month_added,
@@ -378,14 +389,14 @@ balance_facet_plot <- clean_data %>%
 
 balance_facet_plot
 ```
- 
+
 The balance plot illustrates how the number of movies and TV shows added to Netflix has evolved over time, broken down by month and year. Across all years, movies consistently account for a larger share of newly added titles, indicating that films remain a core component of the platform’s catalogue.
 
 At the same time, the presence of TV shows increases steadily over the observed period. In several months, especially in later years, the number of added series becomes more substantial, suggesting a growing emphasis on episodic content. This pattern aligns with Netflix’s strategic focus on long-form storytelling formats that can encourage sustained viewer engagement and retention.
 
 Overall, the visualisation indicates that while movies continue to dominate in terms of volume, TV shows represent an increasingly important component of the platform’s content mix. The evolving balance between these two content types reflects a gradual shift toward a more series-driven catalogue without fully replacing the importance of film-based offerings.
 
-### Which Countries Contribute the most?
+### Which countries provide the most content for Netflix, and which genres were produced the most?
 
 In the joined dataset, several variables contain multiple values within a single cell. In particular, the variables *country* and *listed_in* (genre) often include more than one entry, separated by commas. This structure reflects the fact that a single Netflix title can be associated with multiple producing countries and multiple genres. However, such a format is not suitable for aggregation and frequency analysis in its raw form.
 
@@ -408,30 +419,29 @@ and the analysis is restricted to the top 15 entries to ensure readability of th
 library(treemapify)
 
 tree_plot_countries <- clean_data %>%
-  separate_rows(country, sep = ",\\s*") %>% # \\s* removes the space after the comma
-  filter(!is.na(country) & country != "") %>% # Exclude NAs or not empty entries
-  count(country, name = "count") %>%
-  slice_max(count, n = 15) # Select top 15 countries
+    separate_rows(country, sep = ",\\s*") %>% # \\s* removes the space after the comma
+    filter(!is.na(country) & country != "") %>% # Exclude NAs or not empty entries
+    count(country, name = "count") %>%
+    slice_max(count, n = 15) %>% # Select top 15 countries
+    ggplot(
+        aes(
+            area = count,
+            fill = country,
+            label = country)) +
+    geom_treemap() +
+    geom_treemap_text(
+        colour = "white",
+        place = "centre",
+        grow = TRUE
+    ) +
+    theme(legend.position = "none") +
+    labs(
+            title = "Country with the largest contribution",
+            x = "",
+            y = ""
+        )
 
-# Treemap-Plot
-ggplot(
-    tree_plot_countries,
-    aes(
-        area = count,
-        fill = country,
-        label = country)) +
-  geom_treemap() +
-  geom_treemap_text(
-    colour = "white",
-    place = "centre",
-    grow = TRUE
-  ) +
-  theme(legend.position = "none") +
-  labs(
-        title = "Country with the largest contribution",
-        x = "",
-        y = ""
-    )
+tree_plot_countries
 ```
 
 The country treemap suggests that Netflix content production is concentrated in a small number of 
@@ -447,30 +457,29 @@ markets and broader international diversity within Netflix’s catalogue.
 #| out-width: "100%"
 
 tree_plot_genre <- clean_data %>%
-  separate_rows(listed_in, sep = ",\\s*") %>% # \\s* removes the space after the comma
-  filter(!is.na(listed_in) & listed_in != "") %>% # Exclude NAs or not empty genres
-  count(listed_in, name = "count") %>%
-  slice_max(count, n = 15) # Select top 15 genres
+    separate_rows(listed_in, sep = ",\\s*") %>% # \\s* removes the space after the comma
+    filter(!is.na(listed_in) & listed_in != "") %>% # Exclude NAs or not empty genres
+    count(listed_in, name = "count") %>%
+    slice_max(count, n = 15) %>% # Select top 15 genres
+    ggplot(
+        aes(
+            area = count,
+            fill = listed_in,
+            label = listed_in)) +
+    geom_treemap() +
+    geom_treemap_text(
+        colour = "white",
+        place = "centre",
+        grow = TRUE
+    ) +
+    theme(legend.position = "none") +
+    labs(
+            title = "Genres with the most content contributions",
+            x = "",
+            y = ""
+        )
 
-# Treemap-Plot
-ggplot(
-    tree_plot_genre,
-    aes(
-        area = count,
-        fill = listed_in,
-        label = listed_in)) +
-  geom_treemap() +
-  geom_treemap_text(
-    colour = "white",
-    place = "centre",
-    grow = TRUE
-  ) +
-  theme(legend.position = "none") +
-  labs(
-        title = "Genres with the most content contributions",
-        x = "",
-        y = ""
-    )
+tree_plot_genre
 ```
 
 The genre treemap indicates that a limited number of genres account for a large proportion of 
@@ -479,7 +488,7 @@ numerous other genres appear less frequently. The distribution suggests that Net
 popular genres with a variety of more specialised categories, contributing to thematic diversity 
 across the catalogue.
 
-### IMDb scores and IMDb vote counts
+### How are IMDb scores distributed across countries and genres?
 
 ```{r}
 #| fig-width: 7
@@ -487,22 +496,31 @@ across the catalogue.
 #| out-width: "100%"
 
 ranking_plot_genre <- clean_data %>%
-  separate_rows(country, sep = ",\\s*") %>% 
-  filter(!is.na(country) & country != "" & imdb_votes >= 100) %>%
-  # Filter for top 10 countires
-  filter(country %in% (count(., country, sort = TRUE) %>% top_n(10, n) %>% pull(country))) %>%
-  mutate(country = fct_reorder(country, imdb_score, .fun = median)) %>% # Sort Boxplots by median
-  ggplot(aes(x = imdb_score, y = country, fill = country)) +
-  geom_boxplot(outlier.colour = "black", 
-               outlier.shape = 16,
-               outlier.size = 2, 
-               notch = FALSE) +
-  guides(fill = "none") +
-  labs(
-    title = "Countries by IMDb Score (Ordered by Median)",
-    x = "IMDb Score",
-    y = "Country"
-  )
+    separate_rows(country, sep = ",\\s*") %>% # \\s* removes the space after the comma
+    filter(!is.na(country) & country != "" & imdb_votes >= 100) %>% # Only includes titles with at least 100 votes
+    filter(country %in% (count(., country, sort = TRUE) %>%
+    top_n(10, n) %>%   # Filter for top 10 countires
+    pull(country))) %>%
+    mutate(country = fct_reorder(country, imdb_score, .fun = median)) %>% # Sort Boxplots by median
+    ggplot(
+        aes(
+            x = imdb_score,
+            y = country,
+            fill = country
+            )
+        ) +
+    geom_boxplot(
+        outlier.colour = "black", 
+        outlier.shape = 16,
+        outlier.size = 2, 
+        notch = FALSE
+    ) +
+    guides(fill = "none") +
+    labs(
+        title = "Countries by IMDb Score (Ordered by Median)",
+        x = "IMDb Score",
+        y = "Country"
+    )
 
 ranking_plot_genre
 ```
@@ -519,23 +537,31 @@ Some countries display wider variability, which may reflect a broader diversity 
 #| out-width: "100%"
 
 ranking_plot_genre <- clean_data %>%
-  separate_rows(listed_in, sep = ",\\s*") %>% 
-  filter(!is.na(listed_in) & listed_in != "" & imdb_votes >= 100) %>% 
-  # Filter for top 10 genres
-  filter(listed_in %in% (count(., listed_in, sort = TRUE) %>% top_n(10, n) %>% pull(listed_in))) %>%
-  mutate(listed_in = fct_reorder(listed_in, imdb_score, .fun = median)) %>% # Sort Boxplots by median
-  ggplot(aes(x = imdb_score, y = listed_in, fill = listed_in)) +
-  geom_boxplot(outlier.colour = "black", 
-               outlier.shape = 16,
-               outlier.size = 2, 
-               notch = FALSE) +
-  guides(fill = "none") +
-  labs(
-    title = "IMDb Scores by Genre (Top 10 by Frequency)",
-    subtitle = "Ordered by median score",
-    x = "IMDb Score",
-    y = "Genre"
-  )
+    separate_rows(listed_in, sep = ",\\s*") %>% # \\s* removes the space after the comma
+    filter(!is.na(listed_in) & listed_in != "" & imdb_votes >= 100) %>% # Only includes titles with at least 100 votes
+    filter(listed_in %in% (count(., listed_in, sort = TRUE) %>%
+    top_n(10, n) %>% # Filter for top 10 genres
+    pull(listed_in))) %>%
+    mutate(listed_in = fct_reorder(listed_in, imdb_score, .fun = median)) %>% # Sort Boxplots by median
+    ggplot(
+        aes(
+            x = imdb_score,
+            y = listed_in,
+            fill = listed_in
+        )
+    ) +
+    geom_boxplot(
+        outlier.colour = "black", 
+        outlier.shape = 16,
+        outlier.size = 2, 
+        notch = FALSE) +
+    guides(fill = "none") +
+    labs(
+        title = "IMDb Scores by Genre (Top 10 by Frequency)",
+        subtitle = "Ordered by median score",
+        x = "IMDb Score",
+        y = "Genre"
+    )
 
 ranking_plot_genre
 ```
@@ -552,8 +578,8 @@ This chapter presents an additional exploratory analysis that was not part of th
 While the main sections of the report focus on descriptive insights into Netflix’s catalogue, this 
 section introduces a simple predictive modelling approach.
 
-The goal of this analysis is to explore whether structural characteristics of a title — in this case 
-runtime — are associated with differences in audience evaluation, measured by IMDb score. 
+The goal of this analysis is to explore whether structural characteristics of a title (in this case 
+runtime) are associated with differences in audience evaluation, measured by IMDb score. 
 Although this does not represent a formal forecasting model, it provides an example of how regression 
 techniques can be used to identify potential trends and relationships within the dataset.
 
@@ -563,18 +589,27 @@ techniques can be used to identify potential trends and relationships within the
 #| out-width: "100%"
 
 forecast_plot <- clean_data %>%
-    filter(!is.na(runtime), !is.na(imdb_score), imdb_votes >= 100) %>%
+    filter(
+        !is.na(runtime),
+        !is.na(imdb_score),
+        imdb_votes >= 100 # Only includes titles with at least 100 votes
+    ) %>%
     group_by(runtime) %>%
-    summarise(imdb_score = mean(imdb_score)) %>%
-    ggplot(aes(x = runtime, y = imdb_score)) + 
+    summarise(imdb_score = mean(imdb_score)) %>% # Reduce noise by aggregate the runtime
+    ggplot(
+        aes(
+            x = runtime,
+            y = imdb_score
+        )
+    ) + 
     geom_point(alpha = 0.6) +
-    geom_smooth(method = "lm", formula = y ~ poly(x, 4), color = "steelblue", size = 1.2) +
+    geom_smooth(method = "lm", formula = y ~ poly(x, 4), color = "red", size = 1.2) +
     labs(
         title = "Influence of Runtime on IMDb Scores",
-        subtitle = "Trendline: 4th-degree polynomial regression (mean scores per minute)",
+        subtitle = "Trendline: 4th-degree polynomial regression",
         x = "Runtime (Minutes)",
         y = "Average IMDb Score",
-        caption = "Note: Only includes titles with at least 100 votes"
+        caption = "Note: Mean IMDb score per minute"
     )
 
 forecast_plot
@@ -689,7 +724,6 @@ fit the structure of the dataset or project goals.
 Overall, AI served as a learning assistant rather than a replacement for understanding. It helped 
 accelerate problem solving and improved documentation quality, while all analytical decisions 
 remained under the control of the project team.
-
 
 ### Team Roles & Contributions
 
