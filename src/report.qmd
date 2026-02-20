@@ -588,7 +588,7 @@ The results indicate that certain genres tend to achieve consistently higher aud
 
 Overall, the distribution suggests that genre plays an important role in shaping audience perception. While no single genre dominates completely, some categories appear more consistently associated with higher evaluation scores, indicating differences in how viewers respond to different types of storytelling.
 
-## Chapter of Choice: Forecasting Content Quality Based on Runtime
+## Forecasting Content Quality Based on Runtime
 
 This chapter presents an additional exploratory analysis that was not part of the core course content. 
 While the main sections of the report focus on descriptive insights into Netflix’s catalogue, this 
@@ -636,6 +636,56 @@ The forecasting model explores the relationship between runtime and average IMDb
 The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
 
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
+
+## Chapter of Choice: Similarity Analysis among Countries based on Genres with `ipgrah`.
+
+```{r}
+#| fig-width: 7
+#| fig-asp: 1
+#| out-width: "100%"
+
+library(igraph)
+
+network_data <- clean_data %>%
+    separate_rows(listed_in, sep = ",\\s*") %>% # \\s* removes the space after the comma
+    separate_rows(country, sep = ",\\s*") %>%
+    filter(!is.na(listed_in), listed_in != "",
+            !is.na(country), country != "",
+            imdb_votes >= 100) %>%
+    # Reduce noise
+    add_count(listed_in, name = "genre_n") %>%
+    filter(genre_n > 10) %>%
+    add_count(country, name = "country_n") %>%
+    filter(country_n > 10)
+
+network_data_wide <- network_data %>%
+    count(country, listed_in) %>% 
+    pivot_wider(
+        names_from = listed_in,
+        values_from = n,
+        values_fill = 0
+        ) %>%
+    column_to_rownames("country")
+
+dists <- dist(scale(network_data_wide), method = "euclidean")
+dist_mat <- as.matrix(dists)
+threshold <- quantile(dist_mat, 0.15) 
+adj_mat <- ifelse(dist_mat < threshold, 1, 0)
+diag(adj_mat) <- 0 # Exclude self-connections
+
+net <- graph_from_adjacency_matrix(adj_mat, mode = "undirected")
+net <- delete_vertices(net, V(net)[degree(net) == 0]) # Exlude countries without any connections
+
+groups <- cutree(hclust(dists, method = "ward.D2"), k = 4)
+plot(net,
+    vertex.color = "skyblue",
+    vertex.size = 15,
+    vertex.frame.color = "white",
+    vertex.label.color = "black",
+    vertex.label.cex = 0.8,
+    vertex.label.dist = 1.5,
+    main = "Cultural network: Country similarity by genre")
+```
 
 ## Discussion
  
