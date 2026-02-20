@@ -637,7 +637,21 @@ The results suggest a non-linear relationship between runtime and perceived qual
 
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
 
-## Chapter of Choice: Similarity Analysis among Countries based on Genres with `ipgrah`.
+
+
+
+## Chapter of Choice: Country Similarity Network Based on Genre Profiles
+
+This chapter presents an additional exploratory analysis that extends beyond the methods covered in the core course. Instead of analysing countries independently, the goal of this section is to explore similarities between countries based on the genre composition of the titles they contribute to Netflix’s catalogue.
+
+To achieve this, a network analysis approach was applied using the `igraph` package in R. Network analysis allows complex relationships to be represented visually through nodes and connections. In this context, each node represents a country, while connections indicate countries that share similar genre distributions.
+
+The analysis was conducted in several steps. First, titles containing multiple countries and genres were expanded into individual observations to ensure that all relationships were captured correctly. The data were then aggregated to create a country–genre matrix describing how frequently each genre appeared per country. Based on this matrix, distances between countries were calculated using Euclidean distance after standardising the data. Countries showing strong similarity were connected using a threshold-based adjacency matrix, resulting in a network structure that highlights relational patterns rather than simple rankings.
+
+The resulting network visualisation reveals clusters of countries that share comparable genre profiles. Countries with many connections suggest broader similarities with others, while more peripheral countries indicate unique or specialised genre compositions. This perspective complements earlier analyses by shifting the focus from individual country rankings toward relational structures within the global Netflix catalogue.
+
+It is important to note that the network reflects similarity based solely on genre distribution and does not capture factors such as production budgets, audience behaviour, or co-production dynamics. Nevertheless, the analysis demonstrates how network-based methods can provide additional insight into structural patterns within media datasets and offers a new exploratory perspective on Netflix’s international content landscape.
+
 
 ```{r}
 #| fig-width: 7
@@ -686,6 +700,11 @@ plot(net,
     vertex.label.dist = 1.5,
     main = "Cultural network: Country similarity by genre")
 ```
+
+The network visualisation highlights similarities between countries based on their genre distributions. Countries that are closely connected share comparable genre profiles, indicating similar content composition within the Netflix catalogue.
+
+Clusters of countries suggest groups with related genre patterns, while more isolated countries represent more distinctive or specialised genre structures. Overall, this network perspective complements the previous analyses by revealing relational patterns between countries rather than focusing only on individual rankings.
+
 
 ## Discussion
  
