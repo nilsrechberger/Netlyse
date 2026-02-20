@@ -154,7 +154,7 @@ kable(
     align = "l" # Left-aligned
 )
 
-
+netflix_data
 ```
 
 #### Dataset "Netflix IMDb Scores"
@@ -285,6 +285,8 @@ Complementing the numerical data, the categorical analysis provides a clear pict
     - Family and Children’s Programming: The dataset includes specialized classifications for younger viewers, such as TV-Y (94 titles) and TV-Y7 (104 titles), alongside more general family ratings like PG (238 titles) and G (105 titles).
 
 - Niche Classifications: Smaller segments of the library cater to highly specific regulatory categories, such as the 13 titles rated NC-17 and 72 titles rated TV-G, ensuring a truly global and comprehensive classification coverage.
+
+{{< pagebreak >}}
 
 ```{r}
 clean_data %>%
