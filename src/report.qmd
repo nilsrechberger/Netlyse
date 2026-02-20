@@ -104,7 +104,7 @@ Together, these research questions provide a structured framework for analysing 
 
 The project was structured into several clearly defined phases to ensure an efficient and 
 systematic workflow from data collection to final reporting.
-![Project Time Plan](/img/Screenshot.png){width=85% fig-align="center"}
+![Project Time Plan](../img/project_plan.png){width=85% fig-align="center"}
 
 ## Data Overview
 
