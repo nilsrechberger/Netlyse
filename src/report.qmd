@@ -53,7 +53,8 @@ This project adopts a quantitative, exploratory approach to analyse these dimens
 ## Research Questions
 
 ::: {.callout}
-How has Netflix’s content catalogue evolved over time?
+How has Netflix’s content catalogue evolved over time in terms of content characteristics, international production, and audience evaluation?
+
 :::
 
 The main research question aims to explore the structural development of Netflix’s content catalogue over time. As one of the largest global streaming platforms, Netflix continuously adapts its content strategy to changing market conditions, audience preferences, and international expansion goals. By analysing trends in content growth, content type, and country of production, this study seeks to provide a comprehensive overview of how Netflix has shaped its catalogue and positioned itself within the global entertainment industry.
@@ -78,11 +79,14 @@ By examining how the balance between these two content types has changed, the st
 
 ---
 
-### 3. Which countries provide the most content for Netflix, and which genres were produced the most?
+### 3. Which countries provide the most content for Netflix, and which genres are most reresented in the Netflix catalogue?
 
-This question examines the geographical composition of Netflix’s content catalogue with a particular focus on genre distribution. While overall content volume provides an indication of production intensity, analysing genres allows for a more nuanced understanding of how different countries contribute to the diversity of Netflix’s offerings.
 
-By investigating the global distribution of content, this analysis identifies which countries dominate the production of specific genres, uncovering distinct regional specializations and production patterns. These trends often reflect local cultural preferences, established industry strengths, or Netflix’s strategic maneuvers to localize investment. Ultimately, this geographic breakdown provides a deeper understanding of Netflix’s international content strategy and its localized approach to genre diversification across different global markets.
+This question examines the geographical composition of Netflix’s content catalogue alongside the distribution of genres across the platform. By analysing which countries contribute the largest number of titles, the study provides insight into the dominant production regions represented in Netflix’s offerings.
+
+In addition, examining the overall genre distribution allows for a better understanding of the thematic structure of the catalogue. Identifying the most frequently represented genres highlights the types of content that are most prominent on the platform.
+
+Together, the country and genre analyses offer a broader perspective on how Netflix’s catalogue is structured in terms of geographic representation and thematic diversity. While the analysis does not directly assess production specialisation by country, it provides an overview of the dominant regions and content categories shaping the platform’s global portfolio.
 
 ---
 
@@ -96,6 +100,11 @@ By examining the distribution of IMDb scores across the catalogue, this question
 
 Together, these research questions provide a structured framework for analysing the evolution of Netflix’s content catalogue. They allow for a comprehensive examination of growth patterns, content composition, geographical diversity, and audience targeting, thereby supporting a holistic understanding of Netflix’s content strategy over time.
 
+## Project Time Plan
+
+The project was structured into several clearly defined phases to ensure an efficient and 
+systematic workflow from data collection to final reporting.
+![Project Time Plan](/img/Screenshot.png){width=85% fig-align="center"}
 
 ## Data Overview
 
@@ -206,7 +215,7 @@ joined_data
 #### Data preparation
 
 After merging the datasets, a cleaning step was applied to ensure that the data were consistent 
-and suitable for analysis. Redundant columns ((e.g. description.x, description.y)) created during the join were identified and removed, and missing values were handled where necessary.
+and suitable for analysis. Redundant columns (e.g. description.x, description.y) created during the join were identified and removed, and missing values were handled where necessary.
 
 ```{r}
 source(here("scripts", "02_clean_data.R")) # Self build utility script
@@ -284,7 +293,7 @@ clean_data %>%
 
  
 
-## Vizualisations
+## Visualizations
 
 ### How does the relationship between release year and date added reflect Netflix’s strategy in balancing newly produced content with the acquisition and digitisation of older titles?
 
