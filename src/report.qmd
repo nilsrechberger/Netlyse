@@ -3,7 +3,7 @@ title: "Netlyse: A Netflix analysis with R and Quarto"
 author: 
   - name: Faranak Rahimi
   - name: Nils Rechberger
-date: "2026-02-17"
+date: "2026-02-20"
 date-format: long
 lang: en
 toc: false
@@ -636,9 +636,6 @@ The forecasting model explores the relationship between runtime and average IMDb
 The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
 
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
-
-
-
 
 ## Chapter of Choice: Country Similarity Network Based on Genre Profiles
 
