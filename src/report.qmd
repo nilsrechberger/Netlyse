@@ -314,7 +314,7 @@ clean_data %>%
 
 ```{r}
 #| fig-width: 7
-#| fig-asp: 1
+#| fig-asp: 0.9
 #| out-width: "100%"
 
 library(lubridate)
@@ -361,7 +361,7 @@ To examine how the relative contribution of movies and TV shows has changed over
 
 ```{r}
 #| fig-width: 7
-#| fig-asp: 1
+#| fig-asp: 0.8
 #| out-width: "100%"
 
 balance_facet_plot <- clean_data %>%
@@ -601,7 +601,7 @@ techniques can be used to identify potential trends and relationships within the
 
 ```{r}
 #| fig-width: 7
-#| fig-asp: 1
+#| fig-asp: 0.8
 #| out-width: "100%"
 
 forecast_plot <- clean_data %>%
@@ -636,8 +636,6 @@ The forecasting model explores the relationship between runtime and average IMDb
 The results suggest a non-linear relationship between runtime and perceived quality. Titles with very short or moderate runtimes tend to cluster around mid-range scores, while longer productions show a gradual increase in average ratings. This pattern may indicate that longer formats, which often allow for more complex storytelling and character development, are associated with slightly higher audience appreciation.
 
 At the same time, the wide dispersion of points demonstrates that runtime alone is not a strong predictor of quality. High- and low-rated titles exist across nearly all runtime ranges. The model therefore provides an exploratory indication of a potential trend rather than a causal relationship, highlighting how runtime may be linked to audience perception without determining it directly.
-
- 
 
 ## Discussion
  
