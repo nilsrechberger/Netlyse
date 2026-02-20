@@ -100,7 +100,11 @@ By examining the distribution of IMDb scores across the catalogue, this question
 
 Together, these research questions provide a structured framework for analysing the evolution of Netflix’s content catalogue. They allow for a comprehensive examination of growth patterns, content composition, geographical diversity, and audience targeting, thereby supporting a holistic understanding of Netflix’s content strategy over time.
 
+## Project Time Plan
 
+The project was structured into several clearly defined phases to ensure an efficient and 
+systematic workflow from data collection to final reporting.
+![Project Time Plan](/img/Screenshot.png){width=85% fig-align="center"}
 
 ## Data Overview
 
