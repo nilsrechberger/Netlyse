@@ -102,9 +102,22 @@ Together, these research questions provide a structured framework for analysing 
 
 ## Project Time Plan
 
-The project was structured into several clearly defined phases to ensure an efficient and 
-systematic workflow from data collection to final reporting.
+The project was organised into clearly defined phases to ensure a structured and transparent workflow from initial planning to final reporting.
+
 ![Project Time Plan](../img/project_plan.png){width=85% fig-align="center"}
+
+The project time plan presented above provides an overview of the structured workflow that guided the development of this analysis from the initial concept to the final report submission. The plan was designed to ensure a clear progression between phases, allowing sufficient time for data preparation, analysis, interpretation, and documentation while maintaining a logical and manageable project structure.
+
+The first phase focused on project setup and conceptual planning. During this stage, the analytical scope was defined, research questions were formulated, and relevant datasets were identified. Establishing a clear analytical direction early in the process was essential to ensure that later methodological decisions remained aligned with the overall objectives of the study.
+
+The second phase concentrated on data acquisition and integration. The datasets were collected, inspected, and merged into a unified analytical base. Particular attention was given to data consistency and completeness to ensure that no relevant information was lost during the joining process. This stage created the foundation for all subsequent analyses.
+
+Following integration, the project entered the exploratory and analytical phase. Descriptive statistics and visualisations were used to explore patterns within the data, identify trends, and support the research questions. This iterative process involved refining plots, testing different visual perspectives, and continuously interpreting results to build a coherent analytical narrative.
+
+The final phase focused on interpretation, writing, and refinement. Insights derived from the analysis were translated into written explanations, discussion points, and conclusions. Additional time was allocated for improving clarity, ensuring reproducibility, polishing visualisations, and performing consistency checks across the document.
+
+Overall, the time plan illustrates a structured and sequential workflow in which each phase builds upon the outcomes of the previous stage. By following this planned approach, the project maintained analytical consistency and ensured that the final report was both coherent and methodologically transparent.
+
 
 ## Data Overview
 
